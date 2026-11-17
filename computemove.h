@@ -20,7 +20,8 @@ public:
     void run(const bool isFirstMove,
              board* aBoard,
              rackmodel* aRack,
-             dictionary* aDictionary);
+             dictionary* aDictionary,
+             int aScrabbleBonus);
     void markLettersForExchange(rackmodel* aRack);
     sharedMove result(int index) { return m_pMoves[index]; }
     void clear();
@@ -57,7 +58,8 @@ public:
                 const int nOrientation,
                 board* aBoard,
                 rackmodel* aRack,
-                dictionary* aDictionary);
+                dictionary* aDictionary,
+                int aScrabbleBonus);
     ~computeWord();
 #ifdef threaded
     void run() override;
@@ -75,12 +77,15 @@ private:
     bool m_bIsFirstMove;
     int m_nColRow;
     int m_nOrientation;
+    int m_nScrabbleBonus;
 
     bool canPlaceWord(const QString sWord, const int nBoardPos,
                       const int nColRow, const int dim,
                       QSharedPointer<move> aMove, board* aBoard,
                       QVector<Letter> aRackLetter);
     bool hasNeighbors(const QString sWord, const int nBoardPos,
+                      const int nColRow, const int dim);
+    bool hasWalls(const QString sWord, const int nBoardPos,
                       const int nColRow, const int dim);
     bool isAtStart(const int pos, const int colrow);
     int getRackLetter(QVector<Letter> aRackLetter, const QString aChar);

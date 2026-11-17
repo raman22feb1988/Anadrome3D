@@ -71,8 +71,8 @@ Item {
                         : isPlaced && config.bColoredPlayers && (aCurrentMove - when) <= GamePlay.numberOfPlayers
                           ? Qt.lighter(config.playercolors.get(who).itemColor, 1.75) //use (lighter) player color for the last move, if set in config
                           : when === aCurrentMove
-                            ? config.colors.get(8).itemColor //use (yellow) field color for non-empty squares
-                            : Qt.lighter(config.colors.get(8).itemColor) // ... but a bit lighter when removing is not possible
+                            ? config.colors.get(41).itemColor //use (yellow) field color for non-empty squares
+                            : Qt.lighter(config.colors.get(41).itemColor) // ... but a bit lighter when removing is not possible
 
             pieceLabel: aWhat
             pieceValue: value
@@ -182,7 +182,7 @@ Item {
             border.color: Qt.darker(color)
             pieceColor: (!GamePlay.isLocalPlayer) || isExchange
                             ? config.colors.get(0).itemColor //start
-                            : config.colors.get(8).itemColor //piece
+                            : config.colors.get(41).itemColor //piece
             visible: isVisible //LetterState::lsRack
             pieceLabel: what
             pieceValue: value

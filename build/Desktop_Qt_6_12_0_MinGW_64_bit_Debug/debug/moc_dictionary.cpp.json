@@ -1,0 +1,68 @@
+{
+    "classes": [
+        {
+            "className": "dictionary",
+            "lineNumber": 6,
+            "object": true,
+            "qualifiedClassName": "dictionary",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 45,
+                    "name": "onLoadingFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nProgress",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 46,
+                    "name": "onProgress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 47,
+                    "name": "onDownload",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 50,
+                    "name": "doClear",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "dictionary.h",
+    "outputRevision": 69
+}

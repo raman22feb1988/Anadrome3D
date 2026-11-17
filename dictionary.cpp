@@ -263,7 +263,7 @@ void dictionary::charsFromWords()
 }
 
 // INTERNAL: dictionary: More Efficient String Construction https://doc.qt.io/qt-6/qstring.html
-QString dictionary::variation(const QString aChars)
+QStringList dictionary::variation(const QString aChars, bool aReverse)
 /* Scrabble-like variation of letters
    ABC:
    A    B    C
@@ -277,10 +277,12 @@ QString dictionary::variation(const QString aChars)
     int j = 0; //some flag
     int z;     //index of available letters
     int index; //#word in dictionary
+    int reversedIndex;
     QStringList sResults;
     QString s = "";
     QString us;
     QString chars = aChars;
+    QString aReversed;
 
     if (m_sChars.isEmpty())
         charsFromWords();
@@ -297,10 +299,18 @@ QString dictionary::variation(const QString aChars)
             {
                 s = s + letterSet[i];
                 us = s;
-                if ( isWordInDictionary(us, &index) == srMatch)
+                if (isWordInDictionary(us, &index) == srMatch)
+                {
                     sResults.append(us);
+                    if (aReverse)
+                    {
+                        aReversed = reversedString(us);
+                        if (isWordInDictionary(aReversed, &reversedIndex) != srMatch)
+                            sResults.append(aReversed);
+                    }
+                }
                 if ( (index < m_Words.count()) &&
-                     m_Words[index].word.startsWith(us) )          //incomplete or complete word
+                    m_Words[index].word.startsWith(us) )          //incomplete or complete word
                 {
                     chars.remove(z-1,1);
                     i = 0;
@@ -342,7 +352,7 @@ QString dictionary::variation(const QString aChars)
             break;
 
     } // while ( (i > letterSet.length()) && (s == "") )
-    return sResults.join(",");
+    return sResults;
 }
 
 QString dictionary::getWord(const uint index)
@@ -364,12 +374,13 @@ QString dictionary::getMeanings(const QString aWords)
     QString sResult = "<html>\n";
     int aIndex;
 
-    for (int i = 0; i<sWords.count(); i++) {
+    for (int i = 0; i < sWords.count(); i++) {
         aIndex = indexByWord(sWords[i]);
-        if (i > 0) sResult += "</p>";
-        sResult += sWords[i];
-        if ((aIndex > -1) && !m_Words[aIndex].meaning.isEmpty())
-            sResult += ": <i>" + m_Words[aIndex].meaning + "</i>";
+        if (aIndex > -1) {
+            if (sResult.length() >= 8) sResult += "</p>";
+            sResult += replaceAllLetters(sWords[i]) + (m_Words[aIndex].meaning.isEmpty() ? " [" : ": <i>" + m_Words[aIndex].meaning + "</i> [") +
+                       (m_CategoryNames.at(m_Words[aIndex].category)).name + "]";
+        }
     }
     sResult += "</html>";
     return sResult;
@@ -378,7 +389,7 @@ QString dictionary::getMeanings(const QString aWords)
 QStringList dictionary::checkWords(const QString sPlacedWord, QString sConnectedWords)
 {
     QStringList unknownWords;
-    unknownWords.append(sPlacedWord);
+    unknownWords.append(sPlacedWord.split(","));
     if (!sConnectedWords.isEmpty())
         unknownWords.append(sConnectedWords.split(","));
 
@@ -386,8 +397,9 @@ QStringList dictionary::checkWords(const QString sPlacedWord, QString sConnected
     int tmp;
     while (i >= 0)
     {
-        if (unknownWords[i].isEmpty() || (isWordInDictionary(unknownWords[i], &tmp) == srMatch))
-            unknownWords.remove(i);
+        if (unknownWords[i].isEmpty() || isWordInDictionary(unknownWords[i], &tmp) == srMatch
+            || isWordInDictionary(reversedString(unknownWords[i]), &tmp) == srMatch)
+                unknownWords.remove(i);
         i--;
     }
     return unknownWords;
@@ -422,4 +434,10 @@ bool dictionary::getCategoryChecked(const QString catName) const
         }
 
     return true;
+}
+
+QString dictionary::reversedString(QString str)
+{
+    std::reverse(str.begin(), str.end());
+    return str;
 }

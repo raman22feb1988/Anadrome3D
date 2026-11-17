@@ -288,8 +288,8 @@ void GamePlay::doNetworkChallengeResult(QVariantMap aMsg)
             if (m_nWordCheckPenalty > 0) {
                 m_pGameCourseModel->addBonus(i, -m_nWordCheckPenalty);
                 m_pMsgModel->addMessage(tr("%1 illegitimately challenged the last move and receives a penalty of %2 points.")
-                                            .arg(sChallengePlayer)
-                                            .arg(m_nWordCheckPenalty));
+                                            .arg(sChallengePlayer,
+                                            m_nWordCheckPenalty));
             } else
                 m_pMsgModel->addMessage(tr("%1 illegitimately challenged the last move.")
                                             .arg(sChallengePlayer));
@@ -304,8 +304,8 @@ void GamePlay::doNetworkChallengeResult(QVariantMap aMsg)
             if (m_nWordCheckBonus > 0) {
                 m_pGameCourseModel->addBonus(i, m_nWordCheckBonus);
                 m_pMsgModel->addMessage(tr("%1 legitimately challenged the last move and receives a bonus of %2 points.")
-                                            .arg(sChallengePlayer)
-                                            .arg(m_nWordCheckBonus));
+                                            .arg(sChallengePlayer,
+                                            m_nWordCheckBonus));
             } else
                 m_pMsgModel->addMessage(tr("%1 legitimately challenged the last move.")
                                             .arg(sChallengePlayer));

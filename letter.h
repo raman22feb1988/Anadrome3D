@@ -60,6 +60,7 @@ struct Letter
     unsigned int Where = 0;
     Point3D Point = Point3D(0,0,0);
     LetterState::State State = LetterState::lsEmpty;
+    unsigned int Revalue = 0;
 
     QVariantList toVariant()
     {
@@ -76,6 +77,7 @@ struct Letter
         aList.append(Point.y());
         aList.append(Point.z());
         aList.append(State);
+        aList.append(Revalue);
         return aList;
     };
     void fromString(QStringList aList) {
@@ -89,6 +91,7 @@ struct Letter
         Where = aList[7].toUInt();
         Point = Point3D(aList[8].toUInt(),aList[9].toUInt(),aList[10].toUInt());
         State = static_cast<LetterState::State>(aList[11].toInt());
+        Revalue = (aList.size() > 12 ? aList[12].toUInt() : Value);
     }
     bool IsEmpty()
     {
@@ -105,14 +108,22 @@ struct Letter
         aResult &= Point.y() == 0;
         aResult &= Point.z() == 0;
         aResult &= State == LetterState::lsEmpty;
+        aResult &= Revalue == 0;
         return aResult;
     }
-
+    void setRevalue(unsigned int newValue)
+    {
+        Revalue = newValue;
+    }
+    unsigned int getRevalue()
+    {
+        return Revalue;
+    }
 };
 const QString JokerChar = "?";
 const Letter EmptyLetter = {QString(QChar::Null), 0,
                             false, false, false,
                             0, 0, 0, 0, Point3D(0,0,0),
-                            LetterState::lsEmpty};
+                            LetterState::lsEmpty, 0};
 
-//Q_DECLARE_METATYPE(Letter);
+//Q_DECLARE_METATYPE(Letter)

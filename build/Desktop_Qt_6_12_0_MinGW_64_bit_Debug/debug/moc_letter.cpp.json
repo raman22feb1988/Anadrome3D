@@ -1,0 +1,29 @@
+{
+    "classes": [
+        {
+            "className": "LetterState",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "lineNumber": 9,
+                    "name": "State",
+                    "values": [
+                        "lsEmpty",
+                        "lsBag",
+                        "lsRack",
+                        "lsDragging",
+                        "lsChange",
+                        "lsBoard",
+                        "lsPlaced"
+                    ]
+                }
+            ],
+            "lineNumber": 7,
+            "namespace": true,
+            "qualifiedClassName": "LetterState"
+        }
+    ],
+    "inputFile": "letter.h",
+    "outputRevision": 69
+}

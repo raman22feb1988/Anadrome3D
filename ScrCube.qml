@@ -75,8 +75,8 @@ Item {
                                         : isPlaced && config.bColoredPlayers && (aCurrentMove - when) <= GamePlay.numberOfPlayers
                                           ? Qt.lighter(config.playercolors.get(who).itemColor, 1.75) //use (lighter) player color for the last move, if set in config
                                           : aWhen === aCurrentMove
-                                            ? config.colors.get(8).itemColor //use (yellow) field color for non-empty squares
-                                            : Qt.lighter(config.colors.get(8).itemColor) // ... but a bit lighter when removing is not possible
+                                            ? config.colors.get(41).itemColor //use (yellow) field color for non-empty squares
+                                            : Qt.lighter(config.colors.get(41).itemColor) // ... but a bit lighter when removing is not possible
                             pieceShadow: (isPlaced && config.bColoredPlayers)
                                          ? config.playercolors.get(aWho).itemColor //colored shadow to show who placed a piece
                                          : "transparent"

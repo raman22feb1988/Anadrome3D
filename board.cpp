@@ -77,7 +77,7 @@ FieldType board::getFieldtype(const int index)
 #if defined(Q_OS_LINUX) && defined(QT_DEBUG)
         qWarning() << "Field index out of bounds in getFieldtype()" << index << "/" << m_Fieldtypes.count();
 #endif
-        return ftDefault;
+        return ftRegular;
     }
 }
 
@@ -270,17 +270,27 @@ QString board::getWordsAt(const int index)
     }
 
     QString sWord;
-    if (!sWordAbscissa.isEmpty())
+    if (!sWordAbscissa.isEmpty()) {
         sWord = sWordAbscissa;
+        if (!sWord.isEmpty())
+            sWord += ",";
+        sWord += reversedString(sWordAbscissa);
+    }
     if (!sWordOrdinate.isEmpty()) {
         if (!sWord.isEmpty())
             sWord += ",";
         sWord += sWordOrdinate;
+        if (!sWord.isEmpty())
+            sWord += ",";
+        sWord += reversedString(sWordOrdinate);
     }
     if (!sWordApplicate.isEmpty()) {
         if (!sWord.isEmpty())
             sWord += ",";
         sWord += sWordApplicate;
+        if (!sWord.isEmpty())
+            sWord += ",";
+        sWord += reversedString(sWordApplicate);
     }
 
     return sWord;
@@ -295,3 +305,14 @@ void board::setJokerLetter(const int aLetterIndex, const QString aWhat)
         qWarning() << "Letter index out of bounds in setJokerLetter()" << aLetterIndex << "/" << m_Letters.count();
 #endif
 }
+
+QString board::reversedString(QString str)
+{
+    std::reverse(str.begin(), str.end());
+    return str;
+}
+
+/* int board::getIndex(const int col, const int row)
+{
+    return col * m_nBoardSize + row;
+} */

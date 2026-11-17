@@ -26,7 +26,7 @@ Window {
     property int timeControl: 0 // ConfigTime::rbNoLimit/rbPerMove/rbPerGame
     property int timeControlValue: 10 // ConfigTime::rbNoLimit/rbPerMove/rbPerGame
 
-    property int bingoBonus: 50 // ConfigRules::sbBingo
+    property int bingoBonus: 35 // ConfigRules::sbBingo
     property int gameEndBonus: 0 // ConfigRules::sbGameEnd
     property bool addLetters: true // ConfigRules::sbGameEnd
     property bool subtractLetters: true // ConfigRules::sbGameEnd
@@ -57,10 +57,20 @@ Window {
     property string dictionaryName: configDictionary.dictionaryName
     Component.onCompleted: {
         //fill color names with random color values and reset later to the default
-        var cNames = [qsTr("Start"), qsTr("Default"), qsTr("2x letter"), qsTr(
-                          "3x letter"), qsTr("4x letter"), qsTr(
-                          "2x word"), qsTr("3x word"), qsTr("4x word"), qsTr(
-                          "Pieces")]
+        var cNames = [qsTr("Start"), qsTr("Regular"), qsTr("Double letter"), qsTr(
+                          "Triple letter"), qsTr("Quadruple letter"), qsTr(
+                          "Double word"), qsTr("Triple word"), qsTr("Quadruple word"),
+                          qsTr("Double consonants"), qsTr("Triple vowels"), qsTr("Product"),
+                          qsTr("Word length square"), qsTr("Letter square"), qsTr("Factorial"),
+                          qsTr("Floor"), qsTr("Plus"), qsTr("Times"), qsTr("Power"),
+                          qsTr("Mimic"), qsTr("Ceiling"), qsTr("Sum"), qsTr("Zero"),
+                          qsTr("One"), qsTr("Two"), qsTr("Three"), qsTr("Four"),
+                          qsTr("Five"), qsTr("Six"), qsTr("Seven"), qsTr("Eight"),
+                          qsTr("Nine"), qsTr("Ten"), qsTr("Fifty"), qsTr("Hundred"),
+                          qsTr("Double vertical symmetry"), qsTr("Triple horizontal symmetry"),
+                          qsTr("Quadruple rotational symmetry"), qsTr("Inverter"),
+                          qsTr("Position in alphabet"), qsTr("Reviver"), qsTr("Wall"),
+                          qsTr("Pieces")]
         for (var i = 0; i < cNames.length; i++)
             scrColors.append({
                                  "itemColor": "#000000",
@@ -180,9 +190,11 @@ Window {
         else
             configBoard.sbSize.value = Math.round(Math.cbrt(
                                                       config.board.length))
-        var aColors = getConfigValue("colors", "#c0c0c0,#008000,#00ffff,
-#0000ff,#000060,#ff6060,
-#ff0000,#600000,#ffff00").split(",")
+        var aColors = getConfigValue("colors", "#c0c0c0,#a3a3a3,#6ab6dc,#1b8cc5,#105172,
+        #dc6ad3,#c51bb7,#72106a,#6adc6a,#1bc51b,#1b1bc5,#107210,#6a6adc,#101072,#7d7d7d,
+        #dc6a6a,#c51b1b,#721010,#dcdc6a,#c5c51b,#727210,#363636,#eec9a5,#eeeea5,#c9eea5,
+        #a5eea5,#a5eec9,#a5eeee,#a5c9ee,#a5a5ee,#c9a5ee,#eea5ee,#eea5c9,#f0f0f0,#a36adc,
+        #701bc5,#411072,#6adcb6,#1bc58c,#107251,#000000,#ffff00").split(",")
         if (scrColors.count === aColors.length) {
             for (var i = 0; i < scrColors.count; ++i)
                 scrColors.setProperty(i, "itemColor",
@@ -278,12 +290,12 @@ Window {
     }
 
     ListModel {
-        id: scrColors
         dynamicRoles: true
+        id: scrColors
     }
     ListModel {
-        id: scrPlayerColors
         dynamicRoles: true
+        id: scrPlayerColors
     }
     FileDialog {
         id: fileDialog

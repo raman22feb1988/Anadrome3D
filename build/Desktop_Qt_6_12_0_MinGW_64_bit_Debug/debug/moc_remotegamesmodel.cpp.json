@@ -1,0 +1,18 @@
+{
+    "classes": [
+        {
+            "className": "remoteGamesModel",
+            "lineNumber": 6,
+            "object": true,
+            "qualifiedClassName": "remoteGamesModel",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "remotegamesmodel.h",
+    "outputRevision": 69
+}

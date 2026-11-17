@@ -182,14 +182,14 @@ void GamePlay::syncChallengeWord()
             rollbackLastMove();
             m_pGameCourseModel->addBonus(m_nCurrentPlayer, m_nWordCheckBonus);
             m_pMsgModel->addMessage(tr("%1 legitimately challenged the last move and receives a bonus of %2 points.")
-                                        .arg(m_lPlayerNames[m_nCurrentPlayer])
-                                        .arg(m_nWordCheckBonus));
+                                        .arg(m_lPlayerNames[m_nCurrentPlayer],
+                                        m_nWordCheckBonus));
         } else
         {
             m_pGameCourseModel->addBonus(m_nCurrentPlayer, -m_nWordCheckPenalty);
             m_pMsgModel->addMessage(tr("%1 illegitimately challenged the last move and receives a penalty of %2 points.")
-                                        .arg(m_lPlayerNames[m_nCurrentPlayer])
-                                        .arg(m_nWordCheckPenalty));
+                                        .arg(m_lPlayerNames[m_nCurrentPlayer],
+                                        m_nWordCheckPenalty));
         }
     } else
         doNetworkSyncChallengeWord();
@@ -306,7 +306,7 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
     m_nPasses = 0;
     m_nPerformance = gameConfig["Performance"].isNull() ? 0 : gameConfig["Performance"].toUInt() + 1;
     m_pMoves.clear();
-    m_pMoves.append(sharedMove(new move(m_bIsFirstMove, m_pBoard)));
+    m_pMoves.append(sharedMove(new move(m_bIsFirstMove, m_pBoard, m_pDictionary)));
     m_nCurrentMove = 0;
     m_nCurrentPlayer = 0;
 
@@ -361,7 +361,7 @@ void GamePlay::nextPlayer(const bool bIsLoading)
         {
             if (!doCheckWords())
             {
-                if ((m_eWordCheckMode == wcPoll) || IsTimePerMoveOver())
+                if (m_eWordCheckMode == wcPoll || IsTimePerMoveOver())
                     GamePlay::resetPieces();
                 else
                 {
@@ -379,15 +379,18 @@ void GamePlay::nextPlayer(const bool bIsLoading)
         }
     }
 
+    QString aPlacedWord = getValidWords(m_pMoves.last()->PlacedWord);
+    QString aConnectedWords = getValidWords(m_pMoves.last()->ConnectedWords);
+
     //result message
     if ((!bIsLoading) &&
         (!m_pMoves.last()->PlacedWord.isEmpty()))
         //: <Player 1> places <Foo> <<and>> <Far, Faz> and receives 42 points. ("and" is only added if the connected words = %2 are not empty)
-        m_pMsgModel->addMessage(tr("%1 places %2 %3 and receives %4 points.")
+        m_pMsgModel->addMessage(tr("%1 places %2%3 and receives %4 points.")
                                     .arg(  m_lPlayerNames[m_nCurrentPlayer]
-                                         , m_pMoves.last()->PlacedWord
-                                         , !m_pMoves.last()->ConnectedWords.isEmpty() ? tr("and") + " " + m_pMoves.last()->ConnectedWords : ""
-                                         , QString::number(m_pMoves.last()->Value())) ,
+                                         , aPlacedWord
+                                         , aConnectedWords.isEmpty() ? "" : tr(" and") + " " + aConnectedWords
+                                         , QString::fromStdString((m_pMoves.last()->Value()).get_str())) ,
                                 m_lPlayerNames.at(m_nCurrentPlayer));
 
     // increase number of passes
@@ -419,8 +422,8 @@ void GamePlay::nextPlayer(const bool bIsLoading)
         m_bIsFirstMove = false;
 
     //update game course
-    m_pGameCourseModel->addMove(replaceAllLetters(m_pMoves.last()->PlacedWord),
-                                replaceAllLetters(m_pMoves.last()->ConnectedWords),
+    m_pGameCourseModel->addMove(replaceAllLetters(aPlacedWord),
+                                replaceAllLetters(aConnectedWords),
                                 m_nCurrentPlayer,
                                 m_pMoves.last()->Value(),
                                 m_nComputeResults > 0 ? m_pComputeMove->result(0)->Value() : 0,
@@ -448,7 +451,7 @@ void GamePlay::nextPlayer(const bool bIsLoading)
     doUpdateRack();
 
     //new empty move
-    m_pMoves.append( sharedMove(new move(m_bIsFirstMove, m_pBoard)) );
+    m_pMoves.append( sharedMove(new move(m_bIsFirstMove, m_pBoard, m_pDictionary)) );
 
     //increase currentmove and currentplayer
     m_nCurrentMove++;
@@ -518,8 +521,8 @@ void GamePlay::doGameEnd()
     if ( (m_nPasses < m_nNumberOfPasses) && (m_nGameEndBonus > 0) ) {
         m_pGameCourseModel->addBonus(m_nCurrentPlayer, m_nGameEndBonus);
         m_pMsgModel->addMessage(tr("%1 has ended the game and receives a bonus of %2 points.")
-                                    .arg(m_lPlayerNames[m_nCurrentPlayer])
-                                    .arg(m_nGameEndBonus)
+                                    .arg(m_lPlayerNames[m_nCurrentPlayer],
+                                    m_nGameEndBonus)
                                 );
     } else
         m_pMsgModel->addMessage(tr("%1 has ended the game.")
@@ -539,20 +542,22 @@ void GamePlay::doGameEnd()
         }
         if (m_bSubtract && (nSubtract > 0)) {
                 m_pGameCourseModel->addBonus(nPlayer, -nSubtract);
+                mpz_class aTotal = m_pGameCourseModel->getScore(nPlayer) + nSubtract;
                 m_pMsgModel->addMessage(tr("%1: %2 minus %3 points")
-                                            .arg(m_lPlayerNames[nPlayer])
-                                            .arg(m_pGameCourseModel->getScore(nPlayer) + nSubtract)
-                                            .arg(nSubtract)
+                                            .arg(m_lPlayerNames[nPlayer],
+                                            QString::fromStdString(aTotal.get_str()),
+                                            QString::number(nSubtract))
                                         );
         }
     }
 
     if (m_bAdd) {
         m_pGameCourseModel->addBonus(m_nCurrentPlayer, nAdd);
+        mpz_class aTotal = m_pGameCourseModel->getScore(m_nCurrentPlayer) - nAdd;
         m_pMsgModel->addMessage(tr("%1: %2 plus %3 points")
-                                    .arg(m_lPlayerNames[m_nCurrentPlayer])
-                                    .arg(m_pGameCourseModel->getScore(m_nCurrentPlayer) - nAdd)
-                                    .arg(nAdd)
+                                    .arg(m_lPlayerNames[m_nCurrentPlayer],
+                                    QString::fromStdString(aTotal.get_str()),
+                                    QString::number(nAdd))
                                 );
     }
 
@@ -583,14 +588,14 @@ void GamePlay::doGameEnd()
     //network
     if (m_bIsConnected) {
         QStringList aData;
-        int nScore;
+        mpz_class nScore;
         aData.append("NumberOfPlayers=" + QString::number(m_nPlayerCount));
         for (uint i=0; i<m_nPlayerCount; i++) {
             aData.append("Player"+QString::number(i)+"Name="+m_lPlayerNames[i]);
             nScore = m_pGameCourseModel->getScore(i);
-            aData.append("Player"+QString::number(i)+"Value="+QString::number(nScore));
+            aData.append("Player"+QString::number(i)+"Value="+QString::fromStdString(nScore.get_str()));
             if (m_lPlayerNames[i] == m_pNetwork->localPlayerName())
-                aData.append("MyResult="+QString::number(nScore));
+                aData.append("MyResult="+QString::fromStdString(nScore.get_str()));
         }
         emit onSend(network::nwGameResult, "group", aData.join("\a"));
     }
@@ -636,17 +641,29 @@ bool GamePlay::doCheckWords(const bool bPrevious)
     const QString connected = bPrevious ? m_pMoves[m_pMoves.count()-2]->ConnectedWords
                                         : m_pMoves.last()->ConnectedWords;
 
-    QStringList unknownWords = m_pDictionary->checkWords(placed,connected);
+    QStringList unknownWords = m_pDictionary->checkWords(placed, connected);
     if (!unknownWords.isEmpty())
     {
+        QStringList reversedWords;
+        reversedWords.reserve(unknownWords.size());
+
+        std::transform(unknownWords.cbegin(), unknownWords.cend(), std::back_inserter(reversedWords),
+                       [](QString str) {
+                           std::reverse(str.begin(), str.end());
+                           return str;
+                       });
+
         QMessageBox msgBox;
         msgBox.setWindowTitle("Scrabble3D");
         QString msgText = tr("Unknown word(s):")+"\n%1";
+        QString reversedText = tr("Reversed word(s):")+"\n%1";
         msgBox.setText(msgText.arg(replaceAllLetters(unknownWords.join(","))));
-        msgBox.setInformativeText(tr("Do you want to accept anyway?"));
-        msgBox.setIcon(QMessageBox::Question);
-        msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-        if (msgBox.exec() == QMessageBox::No)
+        msgBox.setInformativeText(reversedText.arg(replaceAllLetters(reversedWords.join(","))));
+        msgBox.setIcon(QMessageBox::Warning);
+        // msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        // if (msgBox.exec() == QMessageBox::No)
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        if (msgBox.exec() == QMessageBox::Ok)
             return false;
     }
     return true;
@@ -675,7 +692,7 @@ bool GamePlay::canDrop(const unsigned int boardIndex)
     if (!getIsLocalPlayer())
         return false;
     int z = m_pBoard->pointToWhere( m_pBoard->pos3D(boardIndex) );
-    return (m_pBoard->getLetter(z).State == LetterState::lsEmpty);
+    return (m_pBoard->getLetter(z).State == LetterState::lsEmpty && m_pBoard->getFieldtype(z) != ftWall);
 }
 
 bool GamePlay::canDrag()
@@ -777,9 +794,9 @@ void GamePlay::timerEvent(QTimerEvent *event)
         m_nTimePenaltyCount[m_nCurrentPlayer]--; //decrease number of possible additions
         m_pGameCourseModel->addBonus(m_nCurrentPlayer, -m_nTimePenaltyValue); //add penalty
         m_pMsgModel->addMessage(tr("Player %1 run out of time and one minute was added at a penalty of %2 points (%3 remaining).")
-                                .arg(m_lPlayerNames.at(m_nCurrentPlayer))
-                                .arg(m_nTimePenaltyValue)
-                                .arg(m_nTimePenaltyCount[m_nCurrentPlayer]));
+                                .arg(m_lPlayerNames.at(m_nCurrentPlayer),
+                                QString::number(m_nTimePenaltyValue),
+                                QString::number(m_nTimePenaltyCount[m_nCurrentPlayer])));
         if (m_nStatInfoType == 1)
             emit statInfoChanged();
     }
@@ -825,8 +842,8 @@ QString GamePlay::getStatInfoType(const int aType)
     case 1: {
         QString aResult;
         for (uint i = 0; i < m_nPlayerCount; i++)
-            aResult += QString::number(m_pGameCourseModel->getScore(i)) + ",";
-        aResult.chop(1);
+            aResult += QString::fromStdString((m_pGameCourseModel->getScore(i)).get_str()) + ",\n";
+        aResult.chop(2);
         return aResult;
     }
     case 2: {
@@ -852,7 +869,7 @@ QString GamePlay::getStatInfoType(const int aType)
 QString GamePlay::getAllStat()
 {
     QString sResult = tr("Letter:") + " " + getStatInfoType(0) + "\n";
-    sResult += tr("Game score:") + " " + getStatInfoType(1) + "\n";
+    sResult += tr("Game score:") + "\n" + getStatInfoType(1) + "\n";
     if (m_eTimeControlType == tcNoLimit)
         sResult += tr("Time spend:" );
     else
@@ -885,7 +902,7 @@ void GamePlay::dropLetter(const uint rackIndex, const uint boardIndex)
         }
     }
 
-    emit placedValueChanged(m_pMoves.last()->Value());
+    emit placedValueChanged(QString::fromStdString((m_pMoves.last()->Value()).get_str()));
     emit isAcceptedChanged();
     emit lastErrorChanged();
 }
@@ -934,7 +951,7 @@ int GamePlay::removeLetter(Letter aLetter)
 
         m_bIsAccepted = m_pMoves.last()->deleteLetter(z); // deleteLetter() clears the bonus too
 
-        emit placedValueChanged(m_pMoves.last()->Value());
+        emit placedValueChanged(QString::fromStdString((m_pMoves.last()->Value()).get_str()));
         emit isAcceptedChanged();
         emit lastErrorChanged();
     }
@@ -985,7 +1002,7 @@ QString GamePlay::getMeaningAt(const int index)
 {
     QString sWords = m_pBoard->getWordsAt(index);
 
-    bool bDoShow = true;
+    /* bool bDoShow = true;
 
     if (!m_bIsHistory && m_bIsRunning) //local player is on move
     {
@@ -994,10 +1011,10 @@ QString GamePlay::getMeaningAt(const int index)
                 bDoShow = false;
     }
     if (bDoShow)
-    {
-        sWords = m_pDictionary->getMeanings(sWords);
-        sWords = replaceAllLetters(sWords);
-    }
+    { */
+    sWords = m_pDictionary->getMeanings(sWords);
+    /* sWords = replaceAllLetters(sWords);
+    } */
     return sWords;
 }
 
@@ -1081,15 +1098,15 @@ void GamePlay::computeMove()
 {
     resetPieces(); //return previously placed pieces
     m_bIsComputing = true;  emit isComputingChanged();
-    m_pComputeMove->run( m_bIsFirstMove, m_pBoard, m_pRackModel, m_pDictionary );
+    m_pComputeMove->run( m_bIsFirstMove, m_pBoard, m_pRackModel, m_pDictionary, m_nScrabbleBonus );
     m_bIsComputing = false; emit isComputingChanged();
     //feedback
     if (m_bIsHistory || (m_lPlayerNames[m_nCurrentPlayer] != "Computer"))
         addMessage((m_nComputeResults == 0)
             ? tr("No word found")
             : tr("Out of %1 possible words found the best scores %2 points.")
-                 .arg(m_nComputeResults)
-                 .arg(m_pComputeMove->result(0)->Value()));
+                 .arg(QString::number(m_nComputeResults),
+                 QString::fromStdString((m_pComputeMove->result(0)->Value()).get_str())));
 }
 
 void GamePlay::doComputeMove()
@@ -1139,7 +1156,7 @@ void GamePlay::placeBestMove(const int index)
             jokerLetter(boardIndex, aLetter.What);
     }
 
-    emit placedValueChanged(aMove->Value());
+    emit placedValueChanged(QString::fromStdString((aMove->Value()).get_str()));
 }
 
 void GamePlay::setComputeProgress(const int aProgress)
@@ -1429,7 +1446,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
 
         m_pMoves.clear();
         //initialize game
-        m_pMoves.append(sharedMove(new move(m_bIsFirstMove, m_pBoard)));
+        m_pMoves.append(sharedMove(new move(m_bIsFirstMove, m_pBoard, m_pDictionary)));
 
         Letter aLetter;
         m_nMoveTime = 0; //zero at beginning
@@ -1523,4 +1540,17 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
 
     if (!bSilent)
         m_pMsgModel->addMessage(tr("Successfully loaded game from %1.").arg(fileName));
+}
+
+QString GamePlay::getValidWords(QString aString)
+{
+    QStringList aList;
+    int aTmp;
+    // Iterates lazily using lightweight QStringView slices (no heap allocations)
+    for (QStringView aWord : qTokenize(aString, u',', Qt::SkipEmptyParts))
+    {
+        if (m_pDictionary->isWordInDictionary(aWord.toString(), &aTmp) == m_pDictionary->srMatch)
+            aList.append(aWord.toString());
+    }
+    return aList.join(",");
 }

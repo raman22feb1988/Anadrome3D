@@ -121,7 +121,7 @@ Dialog {
                     placeholderText: qsTr("Enter letters")
                     enabled: dicIndex.to > 0 // empty dictionary
                     onTextChanged: {
-                        var aWords = GamePlay.getVariation(dicPattern.text).split(",")
+                        var aWords = GamePlay.getVariation(dicPattern.text)
                         dicSearchModel.clear()
                         for (var i = 0; i < aWords.length; i++)
                             dicSearchModel.append({"word":aWords[i]})

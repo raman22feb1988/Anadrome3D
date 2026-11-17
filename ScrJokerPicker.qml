@@ -16,7 +16,7 @@ Dialog {
             implicitWidth: 48
             implicitHeight: 48
             pieceLabel: GamePlay.replaceDigraph(what)
-            pieceColor: config.colors.get(8).itemColor //yellow
+            pieceColor: config.colors.get(41).itemColor //yellow
             pieceValue: value
             border.width: 1
             border.color: "lightgrey"

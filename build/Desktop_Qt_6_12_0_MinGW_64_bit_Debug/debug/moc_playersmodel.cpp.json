@@ -1,0 +1,46 @@
+{
+    "classes": [
+        {
+            "className": "playersTree",
+            "lineNumber": 29,
+            "object": true,
+            "qualifiedClassName": "playersTree",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "playerName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 65,
+                    "name": "doLogout",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "msg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 66,
+                    "name": "doRefresh",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QStandardItemModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "playersmodel.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,1809 @@
+{
+    "classes": [
+        {
+            "className": "GamePlay",
+            "lineNumber": 35,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 65,
+                    "lineNumber": 112,
+                    "name": "checkForUpdates",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 66,
+                    "lineNumber": 113,
+                    "name": "runDemo",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 67,
+                    "lineNumber": 115,
+                    "name": "localize",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 68,
+                    "lineNumber": 116,
+                    "name": "deleteLocFile",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "password",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "email",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "country",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "city",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 69,
+                    "lineNumber": 117,
+                    "name": "connect",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 70,
+                    "lineNumber": 118,
+                    "name": "disconnect",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMessage",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 71,
+                    "lineNumber": 119,
+                    "name": "chat",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "boardIndex",
+                            "type": "uint"
+                        }
+                    ],
+                    "index": 72,
+                    "lineNumber": 121,
+                    "name": "canDrop",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 73,
+                    "lineNumber": 122,
+                    "name": "canDrag",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rackIndex",
+                            "type": "uint"
+                        }
+                    ],
+                    "index": 74,
+                    "lineNumber": 123,
+                    "name": "exchangeLetter",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 75,
+                    "lineNumber": 124,
+                    "name": "getLastError",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 76,
+                    "lineNumber": 125,
+                    "name": "getPlayerName",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "aWho",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 77,
+                    "lineNumber": 126,
+                    "name": "addMessage",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 78,
+                    "isCloned": true,
+                    "lineNumber": 126,
+                    "name": "addMessage",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "configData",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 79,
+                    "lineNumber": 128,
+                    "name": "saveConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 80,
+                    "lineNumber": 129,
+                    "name": "loadConfig",
+                    "returnType": "QVariantMap"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "bSilent",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 81,
+                    "lineNumber": 130,
+                    "name": "saveGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 82,
+                    "isCloned": true,
+                    "lineNumber": 130,
+                    "name": "saveGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "bSilent",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 83,
+                    "lineNumber": 131,
+                    "name": "loadGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 84,
+                    "isCloned": true,
+                    "lineNumber": 131,
+                    "name": "loadGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 85,
+                    "lineNumber": 132,
+                    "name": "getRemoteGames",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "selectedRow",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 86,
+                    "lineNumber": 136,
+                    "name": "loadRemoteGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "categories",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 87,
+                    "lineNumber": 141,
+                    "name": "loadDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 88,
+                    "lineNumber": 142,
+                    "name": "deleteDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "catName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "isChecked",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "doReset",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 89,
+                    "lineNumber": 143,
+                    "name": "setCategoryChecked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "catName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "isChecked",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 90,
+                    "isCloned": true,
+                    "lineNumber": 143,
+                    "name": "setCategoryChecked",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "catName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 91,
+                    "isConst": true,
+                    "lineNumber": 146,
+                    "name": "getCategoryChecked",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 92,
+                    "lineNumber": 148,
+                    "name": "computeMove",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 93,
+                    "lineNumber": 149,
+                    "name": "placeBestMove",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "sPattern",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 94,
+                    "lineNumber": 151,
+                    "name": "getVariation",
+                    "returnType": "QStringList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nIndex",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 95,
+                    "lineNumber": 152,
+                    "name": "wordByIndex",
+                    "returnType": "QVariantMap"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "sWord",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 96,
+                    "lineNumber": 153,
+                    "name": "indexByWord",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 97,
+                    "lineNumber": 154,
+                    "name": "getMeaningAt",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aType",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 98,
+                    "lineNumber": 156,
+                    "name": "statInfoType",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 99,
+                    "lineNumber": 157,
+                    "name": "allStat",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "index": 100,
+                    "lineNumber": 158,
+                    "name": "version",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "index": 101,
+                    "lineNumber": 159,
+                    "name": "config",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aLetter",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 102,
+                    "lineNumber": 160,
+                    "name": "replaceDigraph",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "index": 103,
+                    "lineNumber": 162,
+                    "name": "networkName",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "sName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 104,
+                    "lineNumber": 163,
+                    "name": "doInvite",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "isOpen",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 105,
+                    "lineNumber": 164,
+                    "name": "setOpenForGames",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 106,
+                    "lineNumber": 165,
+                    "name": "doLeave",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aConfig",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 107,
+                    "lineNumber": 166,
+                    "name": "syncNewGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 108,
+                    "lineNumber": 167,
+                    "name": "rejectNewGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 109,
+                    "lineNumber": 168,
+                    "name": "syncNextPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 110,
+                    "lineNumber": 169,
+                    "name": "syncChallengeWord",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 111,
+                    "lineNumber": 170,
+                    "name": "syncCambioSecco",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 39,
+                    "name": "boardModel",
+                    "override": false,
+                    "read": "boardModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "boardmodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 40,
+                    "name": "cubeModel",
+                    "override": false,
+                    "read": "cubeModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "cubemodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 41,
+                    "name": "rackModel",
+                    "override": false,
+                    "read": "rackModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "rackmodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 42,
+                    "name": "msgModel",
+                    "override": false,
+                    "read": "msgModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "msgmodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 43,
+                    "name": "gamecourseModel",
+                    "override": false,
+                    "read": "gamecourseModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "gamecoursemodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 44,
+                    "name": "dicListModel",
+                    "override": false,
+                    "read": "dicListModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "dictionarymodel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "lineNumber": 45,
+                    "name": "locListModel",
+                    "override": false,
+                    "read": "locListModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "locList*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
+                    "lineNumber": 46,
+                    "name": "playersTreeModel",
+                    "override": false,
+                    "read": "playersTreeModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "playersTree*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 8,
+                    "lineNumber": 47,
+                    "name": "remoteGames",
+                    "override": false,
+                    "read": "remoteGames",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "remoteGamesModel*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 9,
+                    "lineNumber": 49,
+                    "name": "isChallenge",
+                    "notify": "isChallengeChanged",
+                    "override": false,
+                    "read": "getIsChallenge",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 10,
+                    "lineNumber": 50,
+                    "name": "isRunning",
+                    "notify": "isRunningChanged",
+                    "override": false,
+                    "read": "getIsRunning",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 11,
+                    "lineNumber": 51,
+                    "name": "isComputing",
+                    "notify": "isComputingChanged",
+                    "override": false,
+                    "read": "getIsComputing",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 12,
+                    "lineNumber": 52,
+                    "name": "isHistory",
+                    "notify": "isHistoryChanged",
+                    "override": false,
+                    "read": "getIsHistory",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 13,
+                    "lineNumber": 53,
+                    "name": "isInitialized",
+                    "notify": "isInitializedChanged",
+                    "override": false,
+                    "read": "getIsInitialized",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 14,
+                    "lineNumber": 54,
+                    "name": "is3D",
+                    "notify": "is3DChanged",
+                    "override": false,
+                    "read": "getIs3D",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 15,
+                    "lineNumber": 55,
+                    "name": "cambioSecco",
+                    "notify": "cambioSeccoChanged",
+                    "override": false,
+                    "read": "getCambioSecco",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 16,
+                    "lineNumber": 56,
+                    "name": "boardSize",
+                    "notify": "boardSizeChanged",
+                    "override": false,
+                    "read": "getBoardSize",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 17,
+                    "lineNumber": 57,
+                    "name": "isAccepted",
+                    "notify": "isAcceptedChanged",
+                    "override": false,
+                    "read": "getIsAccepted",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 18,
+                    "lineNumber": 58,
+                    "name": "currentMove",
+                    "notify": "currentMoveChanged",
+                    "override": false,
+                    "read": "getCurrentMove",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 19,
+                    "lineNumber": 59,
+                    "name": "currentPlayer",
+                    "notify": "currentPlayerChanged",
+                    "override": false,
+                    "read": "getCurrentPlayer",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 20,
+                    "lineNumber": 60,
+                    "name": "numberOfPlayers",
+                    "notify": "numberOfPlayersChanged",
+                    "override": false,
+                    "read": "getNumberOfPlayers",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 21,
+                    "lineNumber": 61,
+                    "name": "activeDimension",
+                    "notify": "activeDimensionChanged",
+                    "override": false,
+                    "read": "getActiveDimension",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setActiveDimension"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 22,
+                    "lineNumber": 62,
+                    "name": "activePosition",
+                    "notify": "activePositionChanged",
+                    "override": false,
+                    "read": "getActivePosition",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setActivePosition"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 23,
+                    "lineNumber": 63,
+                    "name": "lastError",
+                    "notify": "lastErrorChanged",
+                    "override": false,
+                    "read": "getLastError",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 24,
+                    "lineNumber": 64,
+                    "name": "statInfo",
+                    "notify": "statInfoChanged",
+                    "override": false,
+                    "read": "getStatInfo",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 25,
+                    "lineNumber": 65,
+                    "name": "statTotal",
+                    "notify": "statTotalChanged",
+                    "override": false,
+                    "read": "getStatTotal",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QVariantList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 26,
+                    "lineNumber": 67,
+                    "name": "computeProgress",
+                    "notify": "computeProgressChanged",
+                    "override": false,
+                    "read": "getComputeProgress",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setComputeProgress"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 27,
+                    "lineNumber": 68,
+                    "name": "computeResults",
+                    "notify": "computeResultsChanged",
+                    "override": false,
+                    "read": "getcomputeResults",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setComputeResults"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 28,
+                    "lineNumber": 70,
+                    "name": "wordCount",
+                    "notify": "wordCountChanged",
+                    "override": false,
+                    "read": "getWordCount",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 29,
+                    "lineNumber": 73,
+                    "name": "isConnected",
+                    "notify": "connectedChanged",
+                    "override": false,
+                    "read": "getIsConnected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 30,
+                    "lineNumber": 74,
+                    "name": "isLocalPlayer",
+                    "notify": "isLocalPlayerChanged",
+                    "override": false,
+                    "read": "getIsLocalPlayer",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "GamePlay",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 77,
+                    "name": "boardSizeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 78,
+                    "name": "isRunningChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 79,
+                    "name": "isComputingChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 80,
+                    "name": "isHistoryChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 81,
+                    "name": "isChallengeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "lineNumber": 82,
+                    "name": "isInitializedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 83,
+                    "name": "is3DChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "lineNumber": 84,
+                    "name": "cambioSeccoChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "lineNumber": 85,
+                    "name": "isAcceptedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 9,
+                    "lineNumber": 86,
+                    "name": "activeDimensionChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 10,
+                    "lineNumber": 87,
+                    "name": "activePositionChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 11,
+                    "lineNumber": 88,
+                    "name": "lastErrorChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 12,
+                    "lineNumber": 89,
+                    "name": "currentMoveChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 13,
+                    "lineNumber": 90,
+                    "name": "currentPlayerChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 14,
+                    "lineNumber": 91,
+                    "name": "numberOfPlayersChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 15,
+                    "lineNumber": 92,
+                    "name": "computeResultsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 16,
+                    "lineNumber": 93,
+                    "name": "computeProgressChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 17,
+                    "lineNumber": 94,
+                    "name": "placedValueChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 18,
+                    "lineNumber": 95,
+                    "name": "wordCountChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 19,
+                    "lineNumber": 96,
+                    "name": "statInfoChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 20,
+                    "lineNumber": 97,
+                    "name": "statTotalChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 21,
+                    "lineNumber": 98,
+                    "name": "connectedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 22,
+                    "lineNumber": 100,
+                    "name": "showPoll",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 23,
+                    "lineNumber": 101,
+                    "name": "isLocalPlayerChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "index": 24,
+                    "lineNumber": 102,
+                    "name": "answerChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 25,
+                    "lineNumber": 103,
+                    "name": "newGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 26,
+                    "lineNumber": 104,
+                    "name": "applyConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 27,
+                    "lineNumber": 105,
+                    "name": "showRemoteGames",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "int"
+                        }
+                    ],
+                    "index": 28,
+                    "lineNumber": 106,
+                    "name": "loadingFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "int"
+                        }
+                    ],
+                    "index": 29,
+                    "lineNumber": 107,
+                    "name": "loadingProgress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "msgType",
+                            "type": "network::MessageType"
+                        },
+                        {
+                            "name": "msgReceiver",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "msgText",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 30,
+                    "lineNumber": 232,
+                    "name": "onSend",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "gameConfig",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 31,
+                    "lineNumber": 184,
+                    "name": "startNewGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "gameConfig",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 32,
+                    "lineNumber": 185,
+                    "name": "startNewGameLater",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "bIsLoading",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 33,
+                    "lineNumber": 189,
+                    "name": "nextPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 34,
+                    "isCloned": true,
+                    "lineNumber": 189,
+                    "name": "nextPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "rackIndex",
+                            "type": "uint"
+                        },
+                        {
+                            "name": "boardIndex",
+                            "type": "uint"
+                        }
+                    ],
+                    "index": 35,
+                    "lineNumber": 191,
+                    "name": "dropLetter",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fromIndex",
+                            "type": "uint"
+                        },
+                        {
+                            "name": "toIndex",
+                            "type": "uint"
+                        }
+                    ],
+                    "index": 36,
+                    "lineNumber": 192,
+                    "name": "dropLetterRack",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "boardIndex",
+                            "type": "uint"
+                        }
+                    ],
+                    "index": 37,
+                    "lineNumber": 193,
+                    "name": "removeLetter",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aLetter",
+                            "type": "Letter"
+                        }
+                    ],
+                    "index": 38,
+                    "lineNumber": 194,
+                    "name": "removeLetter",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "boardIndex",
+                            "type": "uint"
+                        },
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 39,
+                    "lineNumber": 195,
+                    "name": "jokerLetter",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 40,
+                    "lineNumber": 196,
+                    "name": "doCambioSecco",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileType",
+                            "type": "DlType"
+                        },
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 41,
+                    "lineNumber": 197,
+                    "name": "doDownloadFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "pollType",
+                            "type": "GamePlay::PollType"
+                        }
+                    ],
+                    "index": 42,
+                    "lineNumber": 203,
+                    "name": "startPoll",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 43,
+                    "lineNumber": 204,
+                    "name": "endPoll",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 44,
+                    "lineNumber": 205,
+                    "name": "endChallenge",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "socketError",
+                            "type": "QAbstractSocket::SocketError"
+                        }
+                    ],
+                    "index": 45,
+                    "lineNumber": 208,
+                    "name": "doNetworkError",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 46,
+                    "lineNumber": 209,
+                    "name": "doNetworkInfo",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 47,
+                    "lineNumber": 210,
+                    "name": "doNetworkLogin",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 48,
+                    "lineNumber": 211,
+                    "name": "doDisconnect",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 49,
+                    "lineNumber": 212,
+                    "name": "doNetworkDisconnect",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 50,
+                    "lineNumber": 213,
+                    "name": "doNetworkInvite",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 51,
+                    "lineNumber": 214,
+                    "name": "doNetworkJoin",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 52,
+                    "lineNumber": 215,
+                    "name": "doNetworkAnswer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 53,
+                    "lineNumber": 216,
+                    "name": "doNetworkSyncNewGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 54,
+                    "lineNumber": 217,
+                    "name": "doNetworkNextPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 55,
+                    "lineNumber": 218,
+                    "name": "doNetworkRemoteGames",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "oldRating",
+                            "type": "int"
+                        },
+                        {
+                            "name": "newRating",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 56,
+                    "lineNumber": 219,
+                    "name": "doNetworkGameResult",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aSender",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 57,
+                    "lineNumber": 220,
+                    "name": "doNetworkChallengeMove",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 58,
+                    "lineNumber": 221,
+                    "name": "doNetworkChallengeResult",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 59,
+                    "lineNumber": 222,
+                    "name": "doNetworkSyncChallengeWord",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aFileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 60,
+                    "lineNumber": 224,
+                    "name": "doDictionaryLoadingFinished",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "move",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 61,
+                    "lineNumber": 226,
+                    "name": "doSelectedMoveChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aProgress",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 62,
+                    "lineNumber": 227,
+                    "name": "setComputeProgress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nResults",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 63,
+                    "lineNumber": 228,
+                    "name": "setComputeResults",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 64,
+                    "lineNumber": 229,
+                    "name": "download",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "gameplay.h",
+    "outputRevision": 69
+}

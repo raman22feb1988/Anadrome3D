@@ -26,10 +26,10 @@ QVariant gamecoursemodel::data(const QModelIndex &index, int role) const
           return aData.placedWord;
           break;
       case ValueRole:
-          return aData.value;
+          return QString::fromStdString((aData.value).get_str());
           break;
       case BestValueRole:
-          return aData.bestValue == 0 ? "" : QString::number(aData.bestValue);
+          return aData.bestValue == 0 ? "" : QString::fromStdString((aData.bestValue).get_str());
           break;
       case TimeRole:
           {
@@ -129,8 +129,8 @@ void gamecoursemodel::clear()
 void gamecoursemodel::addMove(QString PlacedWord,
                               QString ConnectedWords,
                               uint Who,
-                              int value,
-                              int bestValue,
+                              mpz_class value,
+                              mpz_class bestValue,
                               bool IsScrabble,
                               int moveTime,
                               QList<Letter> rack)
@@ -179,7 +179,7 @@ void gamecoursemodel::addBonus(int player, int value)
     endResetModel();
 }
 
-int gamecoursemodel::getScore(const int nPlayer)
+mpz_class gamecoursemodel::getScore(const int nPlayer)
 {
     return m_Total[nPlayer];
 }
@@ -195,7 +195,7 @@ int gamecoursemodel::timeTotalPerPlayer(const uint nPlayer)
 
 struct Winner {
     int player;
-    int value;
+    mpz_class value;
 };
 
 bool sortByValue(Winner &p1, Winner &p2) {

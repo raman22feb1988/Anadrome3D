@@ -1,0 +1,51 @@
+{
+    "classes": [
+        {
+            "className": "msgmodel",
+            "lineNumber": 13,
+            "object": true,
+            "qualifiedClassName": "msgmodel",
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "aWho",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 30,
+                    "name": "addMessage",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "isCloned": true,
+                    "lineNumber": 30,
+                    "name": "addMessage",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "msgmodel.h",
+    "outputRevision": 69
+}

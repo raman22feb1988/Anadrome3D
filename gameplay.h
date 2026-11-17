@@ -91,7 +91,7 @@ signals:
     void numberOfPlayersChanged();
     void computeResultsChanged();
     void computeProgressChanged();
-    void placedValueChanged(uint);
+    void placedValueChanged(QString);
     void wordCountChanged();
     void statInfoChanged();
     void statTotalChanged();
@@ -148,7 +148,7 @@ public:
     Q_INVOKABLE void computeMove();
     Q_INVOKABLE void placeBestMove(const int index);
 
-    Q_INVOKABLE QString getVariation(const QString sPattern) { return m_pDictionary->variation(sPattern.toUpper()); };
+    Q_INVOKABLE QStringList getVariation(const QString sPattern) { return m_pDictionary->variation(sPattern.toUpper(), false); };
     Q_INVOKABLE QVariantMap wordByIndex(const int nIndex) { return  m_pDictionary->wordByIndex(nIndex); };
     Q_INVOKABLE int indexByWord(const QString sWord) { return m_pDictionary->indexByWord(sWord); };
     Q_INVOKABLE QString getMeaningAt(const int index);
@@ -178,6 +178,7 @@ public:
     locList *locListModel() { return m_pLocListModel; }
     playersTree *playersTreeModel() { return m_PlayersTreeModel; }
     remoteGamesModel *remoteGames() { return m_RemoteGamesModel; }
+    QString getValidWords(QString aString);
 
 public slots:
     void startNewGame(QVariantMap gameConfig);
@@ -270,7 +271,7 @@ private:
     QVariantList getStatTotal() {
         QVariantList aResult;
         for (uint i = 0; i < m_nPlayerCount; i++)
-            aResult.append(m_pGameCourseModel->getScore(i));
+            aResult.append(QString::fromStdString((m_pGameCourseModel->getScore(i)).get_str()));
         return aResult;
     }
     QString getStatInfoType(const int aType);
@@ -297,7 +298,7 @@ private:
     uint m_nWordCheckPeriod;                  // time when objection is allowed
     uint m_nWordCheckPenalty;                 // penalty when challenge was wrong
     int m_nWordCheckBonus;                    // bonus for correct objection
-    int m_nScrabbleBonus;                     // bonus when all pieces are placed, usually 50
+    int m_nScrabbleBonus;                     // bonus when all pieces are placed, usually 35
     bool m_bIsCLABBERS;                       // FEATURE: gameplay: whether CLABBER variant is allowed
     uint m_nPerformance;                      // absolute value: 0 = always the best word; >0 = randomly picked => doComputeMove()
     QList<sharedMove> m_pMoves;

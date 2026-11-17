@@ -1,0 +1,104 @@
+{
+    "classes": [
+        {
+            "className": "computemove",
+            "lineNumber": 15,
+            "object": true,
+            "qualifiedClassName": "computemove",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "int"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 30,
+                    "name": "onComputeProgress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 31,
+                    "name": "onComputeResults",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "aMove",
+                            "type": "sharedMove"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 34,
+                    "name": "doAddWord",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 3,
+                    "lineNumber": 35,
+                    "name": "threadFinished",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        },
+        {
+            "className": "computeWord",
+            "lineNumber": 49,
+            "object": true,
+            "qualifiedClassName": "computeWord",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMove",
+                            "type": "sharedMove"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 70,
+                    "name": "onValidWord",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 71,
+                    "name": "threadFinished",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                },
+                {
+                    "access": "public",
+                    "name": "QRunnable"
+                }
+            ]
+        }
+    ],
+    "inputFile": "computemove.h",
+    "outputRevision": 69
+}

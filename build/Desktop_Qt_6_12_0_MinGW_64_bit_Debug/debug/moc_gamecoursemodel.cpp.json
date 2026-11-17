@@ -1,0 +1,53 @@
+{
+    "classes": [
+        {
+            "className": "gamecoursemodel",
+            "lineNumber": 7,
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 30,
+                    "name": "selectedMove",
+                    "notify": "onSelectedMoveChanged",
+                    "override": false,
+                    "read": "getSelected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setSelected"
+                }
+            ],
+            "qualifiedClassName": "gamecoursemodel",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "nMove",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 53,
+                    "name": "onSelectedMoveChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "gamecoursemodel.h",
+    "outputRevision": 69
+}

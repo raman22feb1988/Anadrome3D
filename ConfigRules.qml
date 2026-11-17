@@ -59,7 +59,7 @@ GridLayout {
             id: sbBingo
             from: 0
             to: 999
-            value: 50
+            value: 35
             onValueChanged: config.bingoBonus = value
         }
         InfoTip { tiptext: qsTr("The 'bingo' bonus when all tiles from the rack are placed at once") }

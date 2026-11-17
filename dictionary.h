@@ -14,7 +14,7 @@ public:
     void loadDictionary(const QString fileName, const QString categories);
 
     // shuffle letters and return possible words
-    QString variation(const QString chars);
+    QStringList variation(const QString chars, bool aReverse);
     // returns a comma delimited string of unknown (or excluded) words
     QStringList checkWords(const QString placedWord, QString connectedWords);
 
@@ -33,6 +33,9 @@ public:
     // set at newgame() based on letter distribution incl. ? for blank tiles
     void setLetterSet(QString aChars) { m_sChars = aChars; }
     QString getLetterSet() { return m_sChars; }
+    enum searchResult {srMatch, srDisabled, srNotFound};
+    searchResult isWordInDictionary(QString sFind, int *index);
+    QString reversedString(QString str);
 
     // getter/setter used in ConfigDictionary
     void setCategoryChecked(const QString catName, const bool isChecked);
@@ -70,8 +73,6 @@ private:
     //true if word is found and category enabled;
     //otherwise index of partially words is returned,
     //eg. 100="Foo" returns 100 but false for "Fo"
-    enum searchResult {srMatch, srDisabled, srNotFound};
-    searchResult isWordInDictionary(QString sFind, int *index);
     void doLoad(QString fileName, QString categories);
 };
 

@@ -8,6 +8,30 @@ DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs depr
 ICON = resources/Scrabble3D.icns
 RC_ICONS = resources/app.ico
 
+win32-g++ {
+    # 1. Tells gmp headers NOT to look for a DLL (__imp_ errors)
+    # DEFINES += GMP_STATIC
+
+    # 2. Tell compiler where headers are
+    # INCLUDEPATH += $$PWD/gmp-static
+    # DEPENDPATH += $$PWD/gmp-static
+
+    # 3. Link to the static .a archives (Do NOT mention .la files here)
+    # Ensure gmpxx comes BEFORE gmp
+    # LIBS += -L$$PWD/gmp-static -lgmpxx -lgmp
+
+    # 1. Tells the headers you are linking against a dynamic library (.dll)
+    # DEFINES += __GMP_WITH_ASM
+
+    # 2. Path to your gmp folder containing headers
+    INCLUDEPATH += $$PWD/gmp-shared
+    DEPENDPATH += $$PWD/gmp-shared
+
+    # 3. Link against the import libraries (gmpxx must come before gmp)
+    # Ensure gmpxx comes BEFORE gmp
+    LIBS += -L$$PWD/gmp-shared -lgmpxx -lgmp
+}
+
 SOURCES += \
         board.cpp \
         boardmodel.cpp \

@@ -1,0 +1,297 @@
+{
+    "classes": [
+        {
+            "className": "network",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "lineNumber": 10,
+                    "name": "MessageType",
+                    "values": [
+                        "nwConnect",
+                        "nwLogin",
+                        "nwLogout",
+                        "nwDisconnect",
+                        "nwRefresh",
+                        "nwInvite",
+                        "nwLeave",
+                        "nwJoin",
+                        "nwInformation",
+                        "nwChat",
+                        "nwAnswer",
+                        "nwSyncNewGame",
+                        "nwCheckWord",
+                        "nwChallenge",
+                        "nwNextPlayer",
+                        "nwCambioSecco",
+                        "nwRemoteGames",
+                        "nwLoadGame",
+                        "nwGameResult",
+                        "nwBestValues"
+                    ]
+                }
+            ],
+            "lineNumber": 5,
+            "object": true,
+            "qualifiedClassName": "network",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 65,
+                    "name": "onLogin",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 66,
+                    "name": "onLogout",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 67,
+                    "name": "onDisconnect",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 68,
+                    "name": "onRefresh",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 69,
+                    "name": "onInfo",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aWhat",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "aWho",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 70,
+                    "name": "onChat",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 71,
+                    "name": "onInvite",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 72,
+                    "name": "onJoin",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "lineNumber": 73,
+                    "name": "onCambioSecco",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 75,
+                    "name": "onSyncNewGame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 10,
+                    "lineNumber": 76,
+                    "name": "onNextPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aSender",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 11,
+                    "lineNumber": 77,
+                    "name": "onChallengeMove",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 78,
+                    "name": "onChallengeResult",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 13,
+                    "lineNumber": 79,
+                    "name": "onRemoteGames",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "aMsg",
+                            "type": "QVariantMap"
+                        }
+                    ],
+                    "index": 14,
+                    "lineNumber": 80,
+                    "name": "onAnswer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "oldRating",
+                            "type": "int"
+                        },
+                        {
+                            "name": "newRating",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 15,
+                    "lineNumber": 81,
+                    "name": "onGameResult",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "msgType",
+                            "type": "network::MessageType"
+                        },
+                        {
+                            "name": "msgReceiver",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "msgText",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 16,
+                    "lineNumber": 61,
+                    "name": "doSend",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 17,
+                    "lineNumber": 84,
+                    "name": "doConnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 18,
+                    "lineNumber": 85,
+                    "name": "doReadyRead",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QTcpSocket"
+                }
+            ]
+        }
+    ],
+    "inputFile": "network.h",
+    "outputRevision": 69
+}

@@ -22,10 +22,10 @@ RowLayout {
              }
         }
         function onPlacedValueChanged(nValue) {
-            if (nValue > 50)
+            if (nValue.length > 2 || parseInt(nValue) > 50)
                 progressBar.width = statProgress.width
             else
-                progressBar.width = Math.round(statProgress.width * nValue/50)
+                progressBar.width = Math.round(statProgress.width * parseInt(nValue)/50)
             tip = qsTr("Score: %1 points").arg(nValue)
         }
     }

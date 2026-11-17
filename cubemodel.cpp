@@ -57,7 +57,7 @@ QVariant cubemodel::data(const QModelIndex &index, int role) const
             aLetter = m_pBoard->getLetter(z);
     }
     else if (z > m_pBoard->getFieldSize())
-        return(1); //ftDefault
+        return(1); //ftRegular
 
     switch (role) {
       case WhatRole:

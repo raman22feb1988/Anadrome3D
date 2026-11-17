@@ -25,7 +25,8 @@ bool sortByValue(sharedMove aMove, sharedMove bMove) {
 void computemove::run(const bool isFirstMove,
                       board* aBoard,
                       rackmodel* aRack,
-                      dictionary* aDictionary)
+                      dictionary* aDictionary,
+                      int aScrabbleBonus)
 {
     //clear previously calculated moves and disable spin edit in UI via emit=0
     clear();
@@ -58,7 +59,8 @@ void computemove::run(const bool isFirstMove,
                                                            nOrientation,
                                                            aBoard,
                                                            aRack,
-                                                           aDictionary);
+                                                           aDictionary,
+                                                           aScrabbleBonus);
                     QObject::connect(compute, SIGNAL(onValidWord(sharedMove)),
                                      this, SLOT(doAddWord(sharedMove)),
                                      Qt::DirectConnection);
@@ -149,7 +151,8 @@ computeWord::computeWord(const bool isFirstMove,
                          const int nOrientation,
                          board *aBoard,
                          rackmodel *aRack,
-                         dictionary *aDictionary)
+                         dictionary *aDictionary,
+                         int aScrabbleBonus)
 {
     m_bIsFirstMove = isFirstMove;
 
@@ -161,6 +164,7 @@ computeWord::computeWord(const bool isFirstMove,
     m_nColRow = nColRow;
     m_nOrientation = nOrientation;
     m_pDictionary = aDictionary;
+    m_nScrabbleBonus = aScrabbleBonus;
 }
 
 computeWord::~computeWord()
@@ -191,7 +195,7 @@ void computeWord::run()
     QString sRack;
     for (int i=0; i<m_pRack->rackSize(); i++)
         sRack += m_pRack->getLetter(i).What;
-    QStringList sWordList = m_pDictionary->variation(sRack + sBoard).split(",");
+    QStringList sWordList = m_pDictionary->variation(sRack + sBoard, true);
     QString sWord;
     //try to place words
     for (int nWordPos = 0; nWordPos < sWordList.count(); nWordPos++) {
@@ -206,7 +210,7 @@ void computeWord::run()
         for (int nBoardPos=0; nBoardPos<=m_pBoard->getBoardSize() - sWord.length(); nBoardPos++)
         {
             //do not try if there is nothing placed next
-            if (!m_bIsFirstMove && !hasNeighbors(sWord, nBoardPos, m_nColRow, m_nOrientation) )
+            if (hasWalls(sWord, nBoardPos, m_nColRow, m_nOrientation) || (!m_bIsFirstMove && !hasNeighbors(sWord, nBoardPos, m_nColRow, m_nOrientation)))
                 continue;
 
             //reset temporary board
@@ -220,7 +224,7 @@ void computeWord::run()
                 aRackLetter.append(m_pRack->getLetter(nRackPos));
 
             //create new move with reference to the temporary board
-            QSharedPointer<move> aMove = QSharedPointer<move>(new move(m_bIsFirstMove, m_pBoard));
+            QSharedPointer<move> aMove = QSharedPointer<move>(new move(m_bIsFirstMove, m_pBoard, m_pDictionary));
 
             //check whether placing the word is possible
             canPlace = canPlaceWord(sWord, nBoardPos, m_nColRow, m_nOrientation, aMove, m_pBoard, aRackLetter);
@@ -269,8 +273,8 @@ bool computeWord::isAtStart(const int pos, const int colrow)
 bool computeWord::hasNeighbors(const QString sWord, const int nBoardPos, const int nColRow, const int dim)
 {
     Point3D aPoint;
-    const int aBoardSize( m_pBoard->getBoardSize() );
-    const int aWordLength( sWord.length() );
+    const int aBoardSize(m_pBoard->getBoardSize());
+    const int aWordLength(sWord.length());
 
     switch (dim) {
     case 0: if (nBoardPos > 0) {
@@ -287,7 +291,7 @@ bool computeWord::hasNeighbors(const QString sWord, const int nBoardPos, const i
     case 1: if (nBoardPos > 0) {
                 aPoint = m_pBoard->pos3D(nColRow * aBoardSize + (nBoardPos - 1)); //above of word
                 if (m_pBoard->getLetter(aPoint).State != LetterState::lsEmpty)
-                return true;
+                    return true;
             }
             if (nBoardPos + aWordLength < m_pBoard->getBoardSize() - 1) {
                 aPoint = m_pBoard->pos3D(nColRow * aBoardSize + (nBoardPos + aWordLength + 1)); //below of the word
@@ -301,30 +305,51 @@ bool computeWord::hasNeighbors(const QString sWord, const int nBoardPos, const i
     {
         switch (dim) {
         case 0: if (nColRow > 0) {
-                    aPoint = m_pBoard->pos3D( (nBoardPos + nWordPos) * aBoardSize + (nColRow - 1) ); //above
+                    aPoint = m_pBoard->pos3D((nBoardPos + nWordPos) * aBoardSize + (nColRow - 1)); //above
                     if (m_pBoard->getLetter(aPoint).State != LetterState::lsEmpty)
                       return true;
                 }
                 if (int(nColRow) < m_pBoard->getBoardSize() - 1) {
-                    aPoint = m_pBoard->pos3D( (nBoardPos + nWordPos) * aBoardSize + (nColRow + 1) ); //below
+                    aPoint = m_pBoard->pos3D((nBoardPos + nWordPos) * aBoardSize + (nColRow + 1)); //below
                     if (m_pBoard->getLetter(aPoint).State != LetterState::lsEmpty)
                         return true;
                 }
                 break;
         case 1: if  (nColRow > 0) {
-                    aPoint = m_pBoard->pos3D( (nColRow - 1) * aBoardSize + (nBoardPos + nWordPos) ); //left
+                    aPoint = m_pBoard->pos3D((nColRow - 1) * aBoardSize + (nBoardPos + nWordPos)); //left
                     if (m_pBoard->getLetter(aPoint).State != LetterState::lsEmpty)
                         return true;
                 }
                 if (int(nColRow) < m_pBoard->getBoardSize() - 1) {
-                    aPoint = m_pBoard->pos3D( (nColRow + 1) * aBoardSize + (nBoardPos + nWordPos) ); //right
+                    aPoint = m_pBoard->pos3D((nColRow + 1) * aBoardSize + (nBoardPos + nWordPos)); //right
                     if (m_pBoard->getLetter(aPoint).State != LetterState::lsEmpty)
                         return true;
                 }
                 break;
         } //switch
     } // for to
+    return false;
+}
 
+bool computeWord::hasWalls(const QString sWord, const int nBoardPos, const int nColRow, const int dim)
+{
+    Point3D aCurrent;
+    const int aBoardSize(m_pBoard->getBoardSize());
+    const int aWordLength(sWord.length());
+
+    for (int nWordPos=0; nWordPos < aWordLength; nWordPos++)
+    {
+        switch (dim) {
+        case 0: aCurrent = m_pBoard->pos3D((nBoardPos + nWordPos) * aBoardSize + nColRow);
+            if (m_pBoard->getFieldtype(m_pBoard->pointToWhere(aCurrent)) == ftWall)
+                    return true;
+                break;
+        case 1: aCurrent = m_pBoard->pos3D(nColRow * aBoardSize + nBoardPos + nWordPos);
+            if (m_pBoard->getFieldtype(m_pBoard->pointToWhere(aCurrent)) == ftWall)
+                    return true;
+                break;
+        }
+    }
     return false;
 }
 
@@ -332,13 +357,14 @@ bool computeWord::canPlaceWord(const QString sWord, const int nBoardPos,
                                const int nColRow, const int dim,
                                QSharedPointer<move> aMove, board* aBoard, QVector<Letter> aRackLetter)
 {
-
     Letter aLetter;
     for (int nWordPos = 0; nWordPos < sWord.length(); nWordPos++) {
-        if (dim==0)
+        if (dim==0) {
             aLetter = aBoard->getLetter(nBoardPos+nWordPos, nColRow);
-        else
+        }
+        else {
             aLetter = aBoard->getLetter(nColRow, nBoardPos+nWordPos);
+        }
         if ( aLetter.IsEmpty() ) {
             int nRack = getRackLetter(aRackLetter, sWord[nWordPos]);
             if (nRack == -1) nRack = getRackLetter(aRackLetter, JokerChar); //try joker
@@ -358,7 +384,7 @@ bool computeWord::canPlaceWord(const QString sWord, const int nBoardPos,
                 aRackLetter[nRack] = EmptyLetter;
                 aMove->addLetter(aLetter, false); //false = don't check the move now
                 if (aMove->letterCount() == aRackLetter.count())
-                    aMove->setBonus( 50, true ); //add some bonus for sorting; the real value is done in gameplay::dropletter
+                    aMove->setBonus( m_nScrabbleBonus, true ); //add some bonus for sorting; the real value is done in gameplay::dropletter
             }
             else
                 return false;

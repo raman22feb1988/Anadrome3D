@@ -2,6 +2,7 @@
 
 #include <QAbstractTableModel>
 #include "letter.h"
+#include <gmpxx.h>
 
 class gamecoursemodel : public QAbstractTableModel
 {
@@ -31,14 +32,14 @@ public:
     void addMove(QString PlacedWord,
                  QString ConnectedWords,
                  uint Who,
-                 int value,
-                 int bestValue,
+                 mpz_class value,
+                 mpz_class bestValue,
                  bool IsScrabble,
                  int moveTime,
                  QList<Letter> rack);
     void clearLastMove(); //legimately challenged
     void addBonus(int player, int value);
-    int getScore(const int nPlayer);
+    mpz_class getScore(const int nPlayer);
     int timeTotalPerPlayer(const uint nPlayer);
     int timePerMove(const int nMove) { if (nMove < m_pData.count()) return m_pData[nMove].time; else return 0; }
     void getWinner(QList<int> &result);
@@ -61,8 +62,8 @@ private:
       QString placedWord;
       QString connectedWords;
       uint who;
-      int value;
-      int bestValue;
+      mpz_class value;
+      mpz_class bestValue;
       bool isScrabble;
       int time;
       int bonuswho;
@@ -70,10 +71,10 @@ private:
       QList<Letter> rack;
     };
 
-    int getSelected() { return m_nSelected; };
+    int getSelected() { return m_nSelected; }
     void setSelected(const int nSelected);
 
     QList<ModelData> m_pData;
-    int m_Total[MaxPlayers];
+    mpz_class m_Total[MaxPlayers];
     int m_nSelected = -1;
 };

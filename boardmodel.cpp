@@ -93,7 +93,7 @@ QVariant boardmodel::data(const QModelIndex &index, int role) const
 
         if ((x >= 0) && (x < m_pBoard->getFieldSize()))
             aBonusField = m_pBoard->getFieldtype(x);
-        if (aBonusField == ftDefault)
+        if (aBonusField == ftRegular)
             aBonusField = ftStart;
         return aBonusField;
         break;

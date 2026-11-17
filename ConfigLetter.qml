@@ -191,7 +191,7 @@ GridLayout {
                     validator: RegularExpressionValidator {
                         regularExpression: (column
                                             === 0) ? /.+/ // any character, as many as possible
-                                                   : /\d|[1-9][0-9]/ // either 0..9 or 1:9 followed by 0:9
+                                                   : /\d|[1-9][0-9]*/ // either 0..9 or 1:9 followed by 0:9
                     }
                     TableView.onCommit: {
                         var idx = tvLetterSet.model.index(row, column)

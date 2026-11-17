@@ -5,14 +5,47 @@
 #include "letter.h"
 
 enum FieldType {ftStart=0,
-                ftDefault=1,
+                ftRegular=1,
                 ftDoubleLetter=2,
                 ftTripleLetter=3,
-                ftQuadLetter=4,
+                ftQuadrupleLetter=4,
                 ftDoubleWord=5,
                 ftTripleWord=6,
-                ftQuadWord=7,
-                ftPiece=8};
+                ftQuadrupleWord=7,
+                ftDoubleConsonants=8,
+                ftTripleVowels=9,
+                ftProduct=10,
+                ftWordLengthSquare=11,
+                ftLetterSquare=12,
+                ftFactorial=13,
+                ftFloor=14,
+                ftPlus=15,
+                ftTimes=16,
+                ftPower=17,
+                ftMimic=18,
+                ftCeiling=19,
+                ftSum=20,
+                ftZero=21,
+                ftOne=22,
+                ftTwo=23,
+                ftThree=24,
+                ftFour=25,
+                ftFive=26,
+                ftSix=27,
+                ftSeven=28,
+                ftEight=29,
+                ftNine=30,
+                ftTen=31,
+                ftFifty=32,
+                ftHundred=33,
+                ftDoubleVerticalSymmetry=34,
+                ftTripleHorizontalSymmetry=35,
+                ftQuadrupleRotationalSymmetry=36,
+                ftInverter=37,
+                ftPositionInAlphabet=38,
+                ftReviver=39,
+                ftWall=40,
+                ftPiece=41};
 
 enum Dimension {
     dmAbscissa  = 0, //x-axis
@@ -49,6 +82,8 @@ public:
     int getActivePosition() { return m_nActivePosition; } //2D plane in 3D; always zero in 2D games
     void setActivePosition(int aPosition) { m_nActivePosition = aPosition; }
     QString getWordsAt(const int index); //comma delimited list of words (abscissa, ordinate, applicate) at this position
+    QString reversedString(QString str);
+    // int getIndex(const int col, const int row);
 
 private:
     QList<Letter> m_Letters; //initialized with EmptyLetter

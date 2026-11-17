@@ -44,7 +44,7 @@ GridLayout {
         Layout.preferredWidth: 250
         Layout.topMargin: 8
 
-        model: [qsTr("Classic"), qsTr("Supperscrabble"), qsTr(
+        model: [qsTr("Classic"), qsTr("Superscrabble"), qsTr(
                 "Scrabble 3D"), qsTr("Superscrabble 3D"), qsTr("User-defined")]
 
         onCurrentIndexChanged: {
@@ -168,7 +168,7 @@ GridLayout {
                             {
                                 var tmp = []
                                 tmp = config.board
-                                tmp[i] = (config.board[i] + 1) % 8
+                                tmp[i] = (config.board[i] + 1) % 41
                                 config.board = tmp
                                 checkDefault()
                                 // update repeater model
