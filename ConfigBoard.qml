@@ -165,19 +165,14 @@ GridLayout {
                     border.width: 0.1
                     MouseArea {
                         anchors.fill: parent
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton // 1. Allow right-clicks
                         onClicked: (mouse) => {
                             if (mouse.button === Qt.LeftButton)
                             {
                                 config.board[i] = (config.board[i] + 1) % 41
+                                checkDefault()
+                                // update repeater model
+                                config.boardChanged() // Notifies QML to re-evaluate bindings using config.board
                             }
-                            else if (mouse.button === Qt.RightButton)
-                            {
-                                config.board[i] = (config.board[i] + 40) % 41
-                            }
-                            checkDefault()
-                            // update repeater model
-                            config.boardChanged() // Notifies QML to re-evaluate bindings using config.board
                         }
                     }
                 }
