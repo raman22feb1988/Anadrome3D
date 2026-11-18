@@ -159,26 +159,25 @@ GridLayout {
                     Layout.preferredWidth: nSize / sbSize.value
                     Layout.preferredHeight: nSize / sbSize.value
                     property int i: index + sbSize.value * sbSize.value * (pos3D.value - 1)
+
+                    // Declarative binding stays active for both clicks and pos3D slider changes
                     color: colors.get(config.board[i]).itemColor
                     border.width: 0.1
                     MouseArea {
                         anchors.fill: parent
                         acceptedButtons: Qt.LeftButton | Qt.RightButton // 1. Allow right-clicks
-                        onClicked: (mouse)=> {
+                        onClicked: (mouse) => {
                             if (mouse.button === Qt.LeftButton)
                             {
                                 config.board[i] = (config.board[i] + 1) % 41
-                                checkDefault()
-                                // update repeater model
-                                parent.color = colors.get(config.board[i]).itemColor
                             }
                             else if (mouse.button === Qt.RightButton)
                             {
                                 config.board[i] = (config.board[i] + 40) % 41
-                                checkDefault()
-                                // update repeater model
-                                parent.color = colors.get(config.board[i]).itemColor
                             }
+                            checkDefault()
+                            // update repeater model
+                            config.boardChanged() // Notifies QML to re-evaluate bindings using config.board
                         }
                     }
                 }

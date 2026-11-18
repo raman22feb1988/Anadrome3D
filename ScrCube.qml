@@ -224,7 +224,10 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: GamePlay.activeDimension = 0
+                onClicked: {
+                    GamePlay.activeDimension = 0
+                    main.board.updateLabelsModel(0)
+                }
             }
         }
         Rectangle {
@@ -239,7 +242,10 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: GamePlay.activeDimension = 1
+                onClicked: {
+                    GamePlay.activeDimension = 1
+                    main.board.updateLabelsModel(1)
+                }
             }
         }
         Rectangle {
@@ -254,7 +260,10 @@ Item {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: GamePlay.activeDimension = 2
+                onClicked: {
+                    GamePlay.activeDimension = 2
+                    main.board.updateLabelsModel(2)
+                }
             }
         }
         Item {

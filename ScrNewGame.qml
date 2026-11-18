@@ -263,7 +263,7 @@ Dialog {
             GamePlay.startNewGameLater(gameConfig)
 
         main.board.jokerPicker.updatePickerModel() //use current letterlist for joker picker
-        main.board.updateLabelsModel() //redraw labels on x/y axis
+        main.board.updateLabelsModel(0) //redraw labels on x/y axis
         main.board.updateFieldSize() //changing the number of fields should result in resizing
 
         //save last game settings except when in network mode

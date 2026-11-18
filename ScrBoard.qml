@@ -25,12 +25,13 @@ Item {
         id: vertLabelModel
         dynamicRoles: true
     }
-    Component.onCompleted: updateLabelsModel();
+    Component.onCompleted: updateLabelsModel(0);
 
     // Converts 0 -> "A", 25 -> "Z", 26 -> "AA", 51 -> "AZ"
     function numberToLetters(number) {
         if (number < 0) return ""
 
+        // const base = 26
         let result = ""
         let n = number
 
@@ -44,13 +45,48 @@ Item {
         return result
     }
 
-    function updateLabelsModel() {
+    // Converts 0 -> "α", 23 -> "ω", 24 -> "αα", 47 -> "αω"
+    function numberToGreekLetters(number) {
+        if (number < 0) return ""
+
+        // 24 standard uppercase Greek letters (avoids the Unicode gap at U+03A2)
+        const greekAlphabet = "αβγδεζηθικλμνξοπρστυφχψω"
+        // const base = greekAlphabet.length // 24
+
+        let result = ""
+        let n = number
+
+        while (n >= 0) {
+            let remainder = n % 24
+            result = greekAlphabet[remainder] + result
+            n = Math.floor(n / 24) - 1
+        }
+
+        return result
+    }
+
+    function updateLabelsModel(axis) {
         horizLabelModel.clear()
         vertLabelModel.clear()
         for (var i = 0; i < GamePlay.boardSize; i++)
         {
-            horizLabelModel.append({"label": i + 1})
-            vertLabelModel.append({"label": numberToLetters(i)}); // A..Z, AA..AZ, BA..BZ...
+            switch (axis) {
+            case 0:
+                horizLabelModel.append({"label": i + 1})
+                vertLabelModel.append({"label": numberToLetters(i)}); // A..Z, AA..AZ, BA..BZ...
+                break
+            case 1:
+                horizLabelModel.append({"label": numberToLetters(i)}) // A..Z, AA..AZ, BA..BZ...
+                vertLabelModel.append({"label": numberToGreekLetters(i)}); // α..ω, αα..αω, βα..βω...
+                break
+            case 2:
+                horizLabelModel.append({"label": i + 1})
+                vertLabelModel.append({"label": numberToGreekLetters(i)}); // α..ω, αα..αω, βα..βω...
+                break
+            default:
+                horizLabelModel.append({"label": i + 1})
+                vertLabelModel.append({"label": numberToLetters(i)}); // A..Z, AA..AZ, BA..BZ...
+            }
         }
     }
 

@@ -212,7 +212,7 @@ ApplicationWindow {
     function doLoad(aFileName)
     {
         GamePlay.loadGame(aFileName)
-        main.board.updateLabelsModel()
+        main.board.updateLabelsModel(0)
         main.board.updateFieldSize() //changing the number of fields should result in resizing
         main.board.jokerPicker.updatePickerModel(); //setup letterlist
     }
