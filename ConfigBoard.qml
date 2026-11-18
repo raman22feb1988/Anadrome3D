@@ -165,8 +165,9 @@ GridLayout {
                     border.width: 0.1
                     MouseArea {
                         anchors.fill: parent
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton // 1. Allow right-clicks
                         onClicked: (mouse) => {
-                            if (mouse.button === Qt.LeftButton)
+                            if (mouse.button === Qt.LeftButton || mouse.button === Qt.RightButton)
                             {
                                 config.board[i] = (config.board[i] + 1) % 41
                                 checkDefault()
