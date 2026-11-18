@@ -290,12 +290,12 @@ Window {
     }
 
     ListModel {
-        dynamicRoles: true
         id: scrColors
+        dynamicRoles: true
     }
     ListModel {
-        dynamicRoles: true
         id: scrPlayerColors
+        dynamicRoles: true
     }
     FileDialog {
         id: fileDialog

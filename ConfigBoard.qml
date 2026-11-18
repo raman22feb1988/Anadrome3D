@@ -44,8 +44,8 @@ GridLayout {
         Layout.preferredWidth: 250
         Layout.topMargin: 8
 
-        model: [qsTr("Classic"), qsTr("Superscrabble"), qsTr(
-                "Scrabble 3D"), qsTr("Superscrabble 3D"), qsTr("User-defined")]
+        model: [qsTr("Classic"), qsTr("Super Scrabble"), qsTr(
+                "Scrabble 3D"), qsTr("Super Scrabble 3D"), qsTr("User-defined")]
 
         onCurrentIndexChanged: {
             switch (currentIndex) {
