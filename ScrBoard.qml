@@ -27,16 +27,30 @@ Item {
     }
     Component.onCompleted: updateLabelsModel();
 
+    // Converts 0 -> "A", 25 -> "Z", 26 -> "AA", 51 -> "AZ"
+    function numberToLetters(number) {
+        if (number < 0) return ""
+
+        let result = ""
+        let n = number
+
+        while (n >= 0) {
+            let remainder = n % 26
+            // 65 is the ASCII / UTF-16 code for uppercase 'A'
+            result = String.fromCharCode(65 + remainder) + result
+            n = Math.floor(n / 26) - 1
+        }
+
+        return result
+    }
+
     function updateLabelsModel() {
         horizLabelModel.clear()
         vertLabelModel.clear()
         for (var i = 0; i < GamePlay.boardSize; i++)
         {
-            horizLabelModel.append({"label":i+1})
-            if (i < 26)
-                vertLabelModel.append({"label":String.fromCharCode(65 + i)});
-            else
-                vertLabelModel.append({"label":String.fromCharCode(65 + i % 26) + Math.floor(i / 26)}); //A..Z,A1..Z1,A2..Z2...
+            horizLabelModel.append({"label": i + 1})
+            vertLabelModel.append({"label": numberToLetters(i)}); // A..Z, AA..AZ, BA..BZ...
         }
     }
 
