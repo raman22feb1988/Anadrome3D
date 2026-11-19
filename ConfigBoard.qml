@@ -163,9 +163,15 @@ GridLayout {
                     // Declarative binding stays active for both clicks and pos3D slider changes
                     color: colors.get(config.board[i]).itemColor
                     border.width: 0.1
+
+                    Image {
+                        source: colors.get(config.board[i]).itemImage
+                        anchors.fill: parent
+                    }
+
                     MouseArea {
                         anchors.fill: parent
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton // 1. Allow right-clicks
+                        acceptedButtons: Qt.LeftButton | Qt.RightButton // Allow right-clicks
                         onClicked: (mouse) => {
                             if (mouse.button === Qt.LeftButton || mouse.button === Qt.RightButton)
                             {

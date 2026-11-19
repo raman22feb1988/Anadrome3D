@@ -116,6 +116,12 @@ Item {
             implicitWidth: fieldSize
             implicitHeight: fieldSize
 
+            Image {
+                source: aWhat == String.fromCharCode(0)
+                        ? config.colors.get(fieldtype).itemImage : ""
+                anchors.fill: parent
+            }
+
             pieceColor: aWhat == String.fromCharCode(0) //empty?
                         ? config.colors.get(fieldtype).itemColor //use field color when empty
                         : isPlaced && config.bColoredPlayers && (aCurrentMove - when) <= GamePlay.numberOfPlayers
