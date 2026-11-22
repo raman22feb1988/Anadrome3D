@@ -181,7 +181,7 @@ RowLayout {
 
     Repeater {
         id: statPlayers
-        model: GamePlay.numberOfPlayers
+        model: GamePlay.m_lPlayerNames
         Layout.margins: 1
         ShadowText {
             Layout.preferredHeight: tbHeight
@@ -191,17 +191,8 @@ RowLayout {
             shadowColor: config.bColoredPlayers
                          ? Qt.lighter(config.playercolors.get(index).itemColor)
                          : "transparent"
-            shadowText: GamePlay.getPlayerName(index);
+            shadowText: modelData;
             active: index === GamePlay.currentPlayer;
-
-            // Re-fetch and log whenever GamePlay emits gameLoaded() (or playersChanged())
-            Connections {
-                target: GamePlay
-                function playerNamesChanged() {
-                    playerDelegate.shadowText = GamePlay.getPlayerName(index);
-                    // console.log("Load Game Player", index + ":", playerDelegate.shadowText);
-                }
-            }
         }
     }
     Item {

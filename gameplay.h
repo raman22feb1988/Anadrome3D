@@ -170,6 +170,7 @@ public:
     Q_INVOKABLE void syncNextPlayer();
     Q_INVOKABLE void syncChallengeWord();
     Q_INVOKABLE void syncCambioSecco();
+    // Q_INVOKABLE QStringList getPlayerNames() const;
 
     rackmodel *rackModel() { return m_pRackModel; }
     boardmodel *boardModel() { return m_pBoardModel; }
@@ -280,6 +281,7 @@ private:
     QString getAllStat();
     bool IsTimePerMoveOver() { return (m_eTimeControlType != tcNoLimit) && (m_nMoveTime >= m_nTimeLeft); }
 
+    // In gameplay.cpp
     QStringList getPlayerNames() const
     {
         return m_lPlayerNames;

@@ -210,6 +210,7 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
     }
     m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
     emit numberOfPlayersChanged();
+    emit playerNamesChanged();
 
     m_pBoard->initialize(gameConfig["FieldTypeArray"].toList(), gameConfig["Is3D"].toBool());
     m_pBoardModel->reset();
@@ -1531,6 +1532,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     m_pRackModel->setActivePlayer(m_nCurrentPlayer);
 
     emit numberOfPlayersChanged();
+    emit playerNamesChanged();
     emit currentPlayerChanged();
     emit isLocalPlayerChanged();
     emit isAcceptedChanged();
@@ -1541,7 +1543,6 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     m_bIsComputing = false;
     emit isComputingChanged();
     emit statTotalChanged();
-    emit playerNamesChanged();
 
     if ((m_eTimeControlType != tcNoLimit) && (m_nTimeLeft == 0))
         nextPlayer();
