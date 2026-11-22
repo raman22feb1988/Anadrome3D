@@ -199,7 +199,7 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
 {
     doSelectedMoveChanged(-1);
     m_lPlayerNames.clear();
-    emit numberOfPlayersChanged(); //refreh names in case the number is equal
+    emit numberOfPlayersChanged(); //refresh names in case the number is equal
     m_lPlayerNames = gameConfig["PlayerNames"].toStringList();
 
     long nSeed = gameConfig["Seed"].toInt();
@@ -657,14 +657,23 @@ bool GamePlay::doCheckWords(const bool bPrevious)
         msgBox.setWindowTitle("Scrabble3D");
         QString msgText = tr("Unknown word(s):")+"\n%1";
         QString reversedText = tr("Reversed word(s):")+"\n%1";
-        msgBox.setText(msgText.arg(replaceAllLetters(unknownWords.join(","))));
+        QString aInvalid = replaceAllLetters(unknownWords.join(","));
+        msgBox.setText(msgText.arg(aInvalid));
         msgBox.setInformativeText(reversedText.arg(replaceAllLetters(reversedWords.join(","))));
         msgBox.setIcon(QMessageBox::Warning);
         // msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         // if (msgBox.exec() == QMessageBox::No)
         msgBox.setStandardButtons(QMessageBox::Ok);
-        if (msgBox.exec() == QMessageBox::Ok)
+        if (msgBox.exec() == QMessageBox::Ok) {
+            if (aInvalid.contains(',')) {
+                m_pMsgModel->addMessage(tr("The words %1 are unknown.")
+                                            .arg(aInvalid));
+            } else {
+                m_pMsgModel->addMessage(tr("The word %1 is not known.")
+                                            .arg(aInvalid));
+            }
             return false;
+        }
     }
     return true;
 }
@@ -1532,6 +1541,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     m_bIsComputing = false;
     emit isComputingChanged();
     emit statTotalChanged();
+    emit playerNamesChanged();
 
     if ((m_eTimeControlType != tcNoLimit) && (m_nTimeLeft == 0))
         nextPlayer();

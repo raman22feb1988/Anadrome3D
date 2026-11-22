@@ -19,12 +19,85 @@ ColumnLayout {
         id: sortModel
         model: GamePlay.gamecourseModel
         sorters: [
-            RoleSorter {
-                roleName: _roleName[_sortIndex]
+            FunctionSorter {
+                id: customSorter
                 sortOrder: _sortOrder === 0 ? Qt.DescendingOrder : Qt.AscendingOrder
+
+                component RoleData: QtObject {
+                    property var move
+                    property string word
+                    property string value
+                    property string best
+                    property string time
+                }
+
+                // Exact arbitrary-precision comparison for base-10 integer strings (mpz_class)
+                function compareBigIntStrings(strA: string, strB: string): int {
+                    let a = (strA && strA.length > 0) ? strA.trim() : "0";
+                    let b = (strB && strB.length > 0) ? strB.trim() : "0";
+
+                    let negA = a.startsWith("-");
+                    let negB = b.startsWith("-");
+
+                    if (negA) a = a.slice(1);
+                    if (negB) b = b.slice(1);
+
+                    // Strip any leading zeros
+                    a = a.replace(/^0+/, "") || "0";
+                    b = b.replace(/^0+/, "") || "0";
+
+                    if (a === "0" && b === "0") return 0;
+                    if (negA !== negB) return negA ? -1 : 1;
+
+                    // Compare magnitude: length first, then character-by-character
+                    let cmp = 0;
+                    if (a.length !== b.length) {
+                        cmp = a.length < b.length ? -1 : 1;
+                    } else if (a !== b) {
+                        cmp = a < b ? -1 : 1;
+                    }
+
+                    // Reverse magnitude order if both numbers are negative
+                        return negA ? -cmp : cmp;
+                    }
+
+                function compare(lhsData: RoleData, rhsData: RoleData): int {
+                    let role = _roleName[_sortIndex];
+                    let rawA = lhsData[role];
+                    let rawB = rhsData[role];
+
+                    // 1. Arbitrary-precision integer sort for mpz_class roles
+                    if (role === "value" || role === "best") {
+                        return compareBigIntStrings(String(rawA ?? "0"), String(rawB ?? "0"));
+                    }
+
+                    // 2. Numeric sort for "move"
+                    if (role === "move") {
+                        let numA = Number(rawA ?? 0);
+                        let numB = Number(rawB ?? 0);
+                        return (numA < numB) ? -1 : ((numA > numB) ? 1 : 0);
+                    }
+
+                    // 3. Duration sort for "hh:mm:ss" time strings
+                    if (role === "time") {
+                        let partsA = String(rawA ?? "0:0:0").split(":");
+                        let partsB = String(rawB ?? "0:0:0").split(":");
+                        let secA = (Number(partsA[0]) || 0) * 3600 + (Number(partsA[1]) || 0) * 60 + (Number(partsA[2]) || 0);
+                        let secB = (Number(partsB[0]) || 0) * 3600 + (Number(partsB[1]) || 0) * 60 + (Number(partsB[2]) || 0);
+                        return (secA < secB) ? -1 : ((secA > secB) ? 1 : 0);
+                    }
+
+                    // 4. Alphabetical sort for "word"
+                    let strA = String(rawA ?? "");
+                    let strB = String(rawB ?? "");
+                    return strA.localeCompare(strB);
+                }
             }
         ]
     }
+
+    on_SortIndexChanged: sortModel.invalidateSorter()
+    on_SortOrderChanged: sortModel.invalidateSorter()
 
     HorizontalHeaderView {
         id: tableHeader

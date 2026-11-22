@@ -33,11 +33,16 @@ QVariant gamecoursemodel::data(const QModelIndex &index, int role) const
           break;
       case TimeRole:
           {
-              QTime aTime(0,0,0);
-              aTime = aTime.addSecs(aData.time);
-              return aTime.toString("mm:ss");
+              qint64 totalSecs = aData.time;
+              qint64 hours = totalSecs / 3600;
+              qint64 mins = qAbs((totalSecs % 3600) / 60);
+              qint64 secs = qAbs(totalSecs % 60);
+              return QString("%1:%2:%3")
+                  .arg(hours, 2, 10, QChar('0'))
+                  .arg(mins, 2, 10, QChar('0'))
+                  .arg(secs, 2, 10, QChar('0'));
           }
-          break;
+      break;
       case WhoRole:
           return aData.who;
           break;

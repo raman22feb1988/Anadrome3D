@@ -63,6 +63,7 @@ class GamePlay : public QObject
     Q_PROPERTY(QString lastError READ getLastError NOTIFY lastErrorChanged)
     Q_PROPERTY(QString statInfo READ getStatInfo NOTIFY statInfoChanged)
     Q_PROPERTY(QVariantList statTotal READ getStatTotal NOTIFY statTotalChanged)
+    Q_PROPERTY(QStringList m_lPlayerNames READ getPlayerNames NOTIFY playerNamesChanged)
     //compute move
     Q_PROPERTY(int computeProgress READ getComputeProgress WRITE setComputeProgress NOTIFY computeProgressChanged)
     Q_PROPERTY(int computeResults READ getcomputeResults WRITE setComputeResults NOTIFY computeResultsChanged)
@@ -96,6 +97,7 @@ signals:
     void statInfoChanged();
     void statTotalChanged();
     void connectedChanged();
+    void playerNamesChanged();
 
     void showPoll(bool); //true = poll is running, false = no poll/hide the pieseries
     void isLocalPlayerChanged();
@@ -277,6 +279,11 @@ private:
     QString getStatInfoType(const int aType);
     QString getAllStat();
     bool IsTimePerMoveOver() { return (m_eTimeControlType != tcNoLimit) && (m_nMoveTime >= m_nTimeLeft); }
+
+    QStringList getPlayerNames() const
+    {
+        return m_lPlayerNames;
+    }
 
     QStringList m_lPlayerNames;               // player names; also count
     QList<Letter> m_lBag;                     // letters in bag

@@ -193,8 +193,16 @@ RowLayout {
                          : "transparent"
             shadowText: GamePlay.getPlayerName(index);
             active: index === GamePlay.currentPlayer;
-        }
 
+            // Re-fetch and log whenever GamePlay emits gameLoaded() (or playersChanged())
+            Connections {
+                target: GamePlay
+                function playerNamesChanged() {
+                    playerDelegate.shadowText = GamePlay.getPlayerName(index);
+                    // console.log("Load Game Player", index + ":", playerDelegate.shadowText);
+                }
+            }
+        }
     }
     Item {
         Layout.preferredHeight: tbHeight * poll.visible
