@@ -6,14 +6,14 @@
             "methods": [
                 {
                     "access": "public",
-                    "index": 65,
+                    "index": 66,
                     "lineNumber": 114,
                     "name": "checkForUpdates",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 66,
+                    "index": 67,
                     "lineNumber": 115,
                     "name": "runDemo",
                     "returnType": "void"
@@ -26,7 +26,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 67,
+                    "index": 68,
                     "lineNumber": 117,
                     "name": "localize",
                     "returnType": "void"
@@ -39,7 +39,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 68,
+                    "index": 69,
                     "lineNumber": 118,
                     "name": "deleteLocFile",
                     "returnType": "bool"
@@ -68,14 +68,14 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 69,
+                    "index": 70,
                     "lineNumber": 119,
                     "name": "connect",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 70,
+                    "index": 71,
                     "lineNumber": 120,
                     "name": "disconnect",
                     "returnType": "void"
@@ -88,7 +88,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 71,
+                    "index": 72,
                     "lineNumber": 121,
                     "name": "chat",
                     "returnType": "void"
@@ -101,14 +101,14 @@
                             "type": "uint"
                         }
                     ],
-                    "index": 72,
+                    "index": 73,
                     "lineNumber": 123,
                     "name": "canDrop",
                     "returnType": "bool"
                 },
                 {
                     "access": "public",
-                    "index": 73,
+                    "index": 74,
                     "lineNumber": 124,
                     "name": "canDrag",
                     "returnType": "bool"
@@ -121,14 +121,14 @@
                             "type": "uint"
                         }
                     ],
-                    "index": 74,
+                    "index": 75,
                     "lineNumber": 125,
                     "name": "exchangeLetter",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 75,
+                    "index": 76,
                     "lineNumber": 126,
                     "name": "getLastError",
                     "returnType": "QString"
@@ -141,7 +141,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 76,
+                    "index": 77,
                     "lineNumber": 127,
                     "name": "getPlayerName",
                     "returnType": "QString"
@@ -158,7 +158,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 77,
+                    "index": 78,
                     "lineNumber": 128,
                     "name": "addMessage",
                     "returnType": "void"
@@ -171,7 +171,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 78,
+                    "index": 79,
                     "isCloned": true,
                     "lineNumber": 128,
                     "name": "addMessage",
@@ -189,7 +189,7 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 79,
+                    "index": 80,
                     "lineNumber": 130,
                     "name": "saveConfig",
                     "returnType": "void"
@@ -202,7 +202,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 80,
+                    "index": 81,
                     "lineNumber": 131,
                     "name": "loadConfig",
                     "returnType": "QVariantMap"
@@ -219,7 +219,7 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 81,
+                    "index": 82,
                     "lineNumber": 132,
                     "name": "saveGame",
                     "returnType": "void"
@@ -232,7 +232,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 82,
+                    "index": 83,
                     "isCloned": true,
                     "lineNumber": 132,
                     "name": "saveGame",
@@ -250,7 +250,7 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 83,
+                    "index": 84,
                     "lineNumber": 133,
                     "name": "loadGame",
                     "returnType": "void"
@@ -263,7 +263,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 84,
+                    "index": 85,
                     "isCloned": true,
                     "lineNumber": 133,
                     "name": "loadGame",
@@ -271,7 +271,7 @@
                 },
                 {
                     "access": "public",
-                    "index": 85,
+                    "index": 86,
                     "lineNumber": 134,
                     "name": "getRemoteGames",
                     "returnType": "void"
@@ -284,7 +284,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 86,
+                    "index": 87,
                     "lineNumber": 138,
                     "name": "loadRemoteGame",
                     "returnType": "void"
@@ -301,7 +301,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 87,
+                    "index": 88,
                     "lineNumber": 143,
                     "name": "loadDictionary",
                     "returnType": "void"
@@ -314,7 +314,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 88,
+                    "index": 89,
                     "lineNumber": 144,
                     "name": "deleteDictionary",
                     "returnType": "void"
@@ -335,7 +335,7 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 89,
+                    "index": 90,
                     "lineNumber": 145,
                     "name": "setCategoryChecked",
                     "returnType": "void"
@@ -352,7 +352,7 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 90,
+                    "index": 91,
                     "isCloned": true,
                     "lineNumber": 145,
                     "name": "setCategoryChecked",
@@ -366,7 +366,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 91,
+                    "index": 92,
                     "isConst": true,
                     "lineNumber": 148,
                     "name": "getCategoryChecked",
@@ -374,7 +374,7 @@
                 },
                 {
                     "access": "public",
-                    "index": 92,
+                    "index": 93,
                     "lineNumber": 150,
                     "name": "computeMove",
                     "returnType": "void"
@@ -387,7 +387,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 93,
+                    "index": 94,
                     "lineNumber": 151,
                     "name": "placeBestMove",
                     "returnType": "void"
@@ -400,7 +400,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 94,
+                    "index": 95,
                     "lineNumber": 153,
                     "name": "getVariation",
                     "returnType": "QStringList"
@@ -413,7 +413,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 95,
+                    "index": 96,
                     "lineNumber": 154,
                     "name": "wordByIndex",
                     "returnType": "QVariantMap"
@@ -426,7 +426,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 96,
+                    "index": 97,
                     "lineNumber": 155,
                     "name": "indexByWord",
                     "returnType": "int"
@@ -439,7 +439,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 97,
+                    "index": 98,
                     "lineNumber": 156,
                     "name": "getMeaningAt",
                     "returnType": "QString"
@@ -452,28 +452,28 @@
                             "type": "int"
                         }
                     ],
-                    "index": 98,
+                    "index": 99,
                     "lineNumber": 158,
                     "name": "statInfoType",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 99,
+                    "index": 100,
                     "lineNumber": 159,
                     "name": "allStat",
                     "returnType": "QString"
                 },
                 {
                     "access": "public",
-                    "index": 100,
+                    "index": 101,
                     "lineNumber": 160,
                     "name": "version",
                     "returnType": "QString"
                 },
                 {
                     "access": "public",
-                    "index": 101,
+                    "index": 102,
                     "lineNumber": 161,
                     "name": "config",
                     "returnType": "QString"
@@ -486,14 +486,14 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 102,
+                    "index": 103,
                     "lineNumber": 162,
                     "name": "replaceDigraph",
                     "returnType": "QString"
                 },
                 {
                     "access": "public",
-                    "index": 103,
+                    "index": 104,
                     "lineNumber": 164,
                     "name": "networkName",
                     "returnType": "QString"
@@ -506,7 +506,7 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 104,
+                    "index": 105,
                     "lineNumber": 165,
                     "name": "doInvite",
                     "returnType": "void"
@@ -519,14 +519,14 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 105,
+                    "index": 106,
                     "lineNumber": 166,
                     "name": "setOpenForGames",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 106,
+                    "index": 107,
                     "lineNumber": 167,
                     "name": "doLeave",
                     "returnType": "void"
@@ -539,35 +539,35 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 107,
+                    "index": 108,
                     "lineNumber": 168,
                     "name": "syncNewGame",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 108,
+                    "index": 109,
                     "lineNumber": 169,
                     "name": "rejectNewGame",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 109,
+                    "index": 110,
                     "lineNumber": 170,
                     "name": "syncNextPlayer",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 110,
+                    "index": 111,
                     "lineNumber": 171,
                     "name": "syncChallengeWord",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 111,
+                    "index": 112,
                     "lineNumber": 172,
                     "name": "syncCambioSecco",
                     "returnType": "void"
@@ -1015,6 +1015,23 @@
                     "designable": true,
                     "final": false,
                     "index": 26,
+                    "lineNumber": 66,
+                    "name": "m_lPlayerNames",
+                    "notify": "playerNamesChanged",
+                    "override": false,
+                    "read": "getPlayerNames",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 27,
                     "lineNumber": 68,
                     "name": "computeProgress",
                     "notify": "computeProgressChanged",
@@ -1032,7 +1049,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 27,
+                    "index": 28,
                     "lineNumber": 69,
                     "name": "computeResults",
                     "notify": "computeResultsChanged",
@@ -1050,7 +1067,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 28,
+                    "index": 29,
                     "lineNumber": 71,
                     "name": "wordCount",
                     "notify": "wordCountChanged",
@@ -1067,7 +1084,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 29,
+                    "index": 30,
                     "lineNumber": 74,
                     "name": "isConnected",
                     "notify": "connectedChanged",
@@ -1084,7 +1101,7 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 30,
+                    "index": 31,
                     "lineNumber": 75,
                     "name": "isLocalPlayer",
                     "notify": "isLocalPlayerChanged",
@@ -1261,19 +1278,26 @@
                 },
                 {
                     "access": "public",
+                    "index": 22,
+                    "lineNumber": 100,
+                    "name": "playerNamesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
                     "arguments": [
                         {
                             "type": "bool"
                         }
                     ],
-                    "index": 22,
+                    "index": 23,
                     "lineNumber": 102,
                     "name": "showPoll",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 23,
+                    "index": 24,
                     "lineNumber": 103,
                     "name": "isLocalPlayerChanged",
                     "returnType": "void"
@@ -1285,7 +1309,7 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 24,
+                    "index": 25,
                     "lineNumber": 104,
                     "name": "answerChanged",
                     "returnType": "void"
@@ -1297,7 +1321,7 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 25,
+                    "index": 26,
                     "lineNumber": 105,
                     "name": "newGame",
                     "returnType": "void"
@@ -1309,14 +1333,14 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 26,
+                    "index": 27,
                     "lineNumber": 106,
                     "name": "applyConfig",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 27,
+                    "index": 28,
                     "lineNumber": 107,
                     "name": "showRemoteGames",
                     "returnType": "void"
@@ -1328,7 +1352,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 28,
+                    "index": 29,
                     "lineNumber": 108,
                     "name": "loadingFinished",
                     "returnType": "void"
@@ -1340,7 +1364,7 @@
                             "type": "int"
                         }
                     ],
-                    "index": 29,
+                    "index": 30,
                     "lineNumber": 109,
                     "name": "loadingProgress",
                     "returnType": "void"
@@ -1361,8 +1385,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 30,
-                    "lineNumber": 235,
+                    "index": 31,
+                    "lineNumber": 234,
                     "name": "onSend",
                     "returnType": "void"
                 }
@@ -1376,8 +1400,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 31,
-                    "lineNumber": 187,
+                    "index": 32,
+                    "lineNumber": 186,
                     "name": "startNewGame",
                     "returnType": "void"
                 },
@@ -1389,8 +1413,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 32,
-                    "lineNumber": 188,
+                    "index": 33,
+                    "lineNumber": 187,
                     "name": "startNewGameLater",
                     "returnType": "void"
                 },
@@ -1402,16 +1426,16 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 33,
-                    "lineNumber": 192,
+                    "index": 34,
+                    "lineNumber": 191,
                     "name": "nextPlayer",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 34,
+                    "index": 35,
                     "isCloned": true,
-                    "lineNumber": 192,
+                    "lineNumber": 191,
                     "name": "nextPlayer",
                     "returnType": "void"
                 },
@@ -1427,8 +1451,8 @@
                             "type": "uint"
                         }
                     ],
-                    "index": 35,
-                    "lineNumber": 194,
+                    "index": 36,
+                    "lineNumber": 193,
                     "name": "dropLetter",
                     "returnType": "void"
                 },
@@ -1444,8 +1468,8 @@
                             "type": "uint"
                         }
                     ],
-                    "index": 36,
-                    "lineNumber": 195,
+                    "index": 37,
+                    "lineNumber": 194,
                     "name": "dropLetterRack",
                     "returnType": "void"
                 },
@@ -1457,8 +1481,8 @@
                             "type": "uint"
                         }
                     ],
-                    "index": 37,
-                    "lineNumber": 196,
+                    "index": 38,
+                    "lineNumber": 195,
                     "name": "removeLetter",
                     "returnType": "int"
                 },
@@ -1470,8 +1494,8 @@
                             "type": "Letter"
                         }
                     ],
-                    "index": 38,
-                    "lineNumber": 197,
+                    "index": 39,
+                    "lineNumber": 196,
                     "name": "removeLetter",
                     "returnType": "int"
                 },
@@ -1487,15 +1511,15 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 39,
-                    "lineNumber": 198,
+                    "index": 40,
+                    "lineNumber": 197,
                     "name": "jokerLetter",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 40,
-                    "lineNumber": 199,
+                    "index": 41,
+                    "lineNumber": 198,
                     "name": "doCambioSecco",
                     "returnType": "void"
                 },
@@ -1511,8 +1535,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 41,
-                    "lineNumber": 200,
+                    "index": 42,
+                    "lineNumber": 199,
                     "name": "doDownloadFinished",
                     "returnType": "void"
                 },
@@ -1524,22 +1548,22 @@
                             "type": "GamePlay::PollType"
                         }
                     ],
-                    "index": 42,
-                    "lineNumber": 206,
+                    "index": 43,
+                    "lineNumber": 205,
                     "name": "startPoll",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 43,
-                    "lineNumber": 207,
+                    "index": 44,
+                    "lineNumber": 206,
                     "name": "endPoll",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 44,
-                    "lineNumber": 208,
+                    "index": 45,
+                    "lineNumber": 207,
                     "name": "endChallenge",
                     "returnType": "void"
                 },
@@ -1551,8 +1575,8 @@
                             "type": "QAbstractSocket::SocketError"
                         }
                     ],
-                    "index": 45,
-                    "lineNumber": 211,
+                    "index": 46,
+                    "lineNumber": 210,
                     "name": "doNetworkError",
                     "returnType": "void"
                 },
@@ -1564,8 +1588,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 46,
-                    "lineNumber": 212,
+                    "index": 47,
+                    "lineNumber": 211,
                     "name": "doNetworkInfo",
                     "returnType": "void"
                 },
@@ -1577,15 +1601,15 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 47,
-                    "lineNumber": 213,
+                    "index": 48,
+                    "lineNumber": 212,
                     "name": "doNetworkLogin",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 48,
-                    "lineNumber": 214,
+                    "index": 49,
+                    "lineNumber": 213,
                     "name": "doDisconnect",
                     "returnType": "void"
                 },
@@ -1597,8 +1621,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 49,
-                    "lineNumber": 215,
+                    "index": 50,
+                    "lineNumber": 214,
                     "name": "doNetworkDisconnect",
                     "returnType": "void"
                 },
@@ -1610,8 +1634,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 50,
-                    "lineNumber": 216,
+                    "index": 51,
+                    "lineNumber": 215,
                     "name": "doNetworkInvite",
                     "returnType": "void"
                 },
@@ -1623,8 +1647,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 51,
-                    "lineNumber": 217,
+                    "index": 52,
+                    "lineNumber": 216,
                     "name": "doNetworkJoin",
                     "returnType": "void"
                 },
@@ -1636,8 +1660,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 52,
-                    "lineNumber": 218,
+                    "index": 53,
+                    "lineNumber": 217,
                     "name": "doNetworkAnswer",
                     "returnType": "void"
                 },
@@ -1649,8 +1673,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 53,
-                    "lineNumber": 219,
+                    "index": 54,
+                    "lineNumber": 218,
                     "name": "doNetworkSyncNewGame",
                     "returnType": "void"
                 },
@@ -1662,8 +1686,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 54,
-                    "lineNumber": 220,
+                    "index": 55,
+                    "lineNumber": 219,
                     "name": "doNetworkNextPlayer",
                     "returnType": "void"
                 },
@@ -1675,8 +1699,8 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 55,
-                    "lineNumber": 221,
+                    "index": 56,
+                    "lineNumber": 220,
                     "name": "doNetworkRemoteGames",
                     "returnType": "void"
                 },
@@ -1692,8 +1716,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 56,
-                    "lineNumber": 222,
+                    "index": 57,
+                    "lineNumber": 221,
                     "name": "doNetworkGameResult",
                     "returnType": "void"
                 },
@@ -1705,8 +1729,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 57,
-                    "lineNumber": 223,
+                    "index": 58,
+                    "lineNumber": 222,
                     "name": "doNetworkChallengeMove",
                     "returnType": "void"
                 },
@@ -1718,15 +1742,15 @@
                             "type": "QVariantMap"
                         }
                     ],
-                    "index": 58,
-                    "lineNumber": 224,
+                    "index": 59,
+                    "lineNumber": 223,
                     "name": "doNetworkChallengeResult",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 59,
-                    "lineNumber": 225,
+                    "index": 60,
+                    "lineNumber": 224,
                     "name": "doNetworkSyncChallengeWord",
                     "returnType": "void"
                 },
@@ -1738,8 +1762,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 60,
-                    "lineNumber": 227,
+                    "index": 61,
+                    "lineNumber": 226,
                     "name": "doDictionaryLoadingFinished",
                     "returnType": "void"
                 },
@@ -1751,8 +1775,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 61,
-                    "lineNumber": 229,
+                    "index": 62,
+                    "lineNumber": 228,
                     "name": "doSelectedMoveChanged",
                     "returnType": "void"
                 },
@@ -1764,8 +1788,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 62,
-                    "lineNumber": 230,
+                    "index": 63,
+                    "lineNumber": 229,
                     "name": "setComputeProgress",
                     "returnType": "void"
                 },
@@ -1777,8 +1801,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 63,
-                    "lineNumber": 231,
+                    "index": 64,
+                    "lineNumber": 230,
                     "name": "setComputeResults",
                     "returnType": "void"
                 },
@@ -1790,8 +1814,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 64,
-                    "lineNumber": 232,
+                    "index": 65,
+                    "lineNumber": 231,
                     "name": "download",
                     "returnType": "void"
                 }

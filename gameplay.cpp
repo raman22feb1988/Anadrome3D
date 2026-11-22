@@ -209,6 +209,7 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
         std::shuffle(m_lPlayerNames.begin(), m_lPlayerNames.end(), rng);
     }
     m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
+    m_nPlayerCount = m_lPlayerNames.count();
     emit numberOfPlayersChanged();
     emit playerNamesChanged();
 
@@ -217,7 +218,6 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
     if ( gameConfig["Is3D"].toBool() ) m_pCubeModel->updateSquare();
     emit boardSizeChanged();
     emit is3DChanged();
-    m_nPlayerCount = m_lPlayerNames.count();
     m_nCurrentPlayer = 0;
     m_pRackModel->initialize( m_nPlayerCount, gameConfig["RackSize"].toInt() );
 

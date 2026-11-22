@@ -64,6 +64,7 @@ template <> constexpr inline auto GamePlay::qt_create_metaobjectdata<qt_meta_tag
         "statInfoChanged",
         "statTotalChanged",
         "connectedChanged",
+        "playerNamesChanged",
         "showPoll",
         "isLocalPlayerChanged",
         "answerChanged",
@@ -235,6 +236,7 @@ template <> constexpr inline auto GamePlay::qt_create_metaobjectdata<qt_meta_tag
         "lastError",
         "statInfo",
         "statTotal",
+        "m_lPlayerNames",
         "computeProgress",
         "computeResults",
         "wordCount",
@@ -289,383 +291,387 @@ template <> constexpr inline auto GamePlay::qt_create_metaobjectdata<qt_meta_tag
         QtMocHelpers::SignalData<void()>(22, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'connectedChanged'
         QtMocHelpers::SignalData<void()>(23, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'playerNamesChanged'
+        QtMocHelpers::SignalData<void()>(24, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'showPoll'
-        QtMocHelpers::SignalData<void(bool)>(24, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(bool)>(25, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Bool, 2 },
         }}),
         // Signal 'isLocalPlayerChanged'
-        QtMocHelpers::SignalData<void()>(25, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void()>(26, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'answerChanged'
-        QtMocHelpers::SignalData<void(QVariantList)>(26, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 27, 2 },
+        QtMocHelpers::SignalData<void(QVariantList)>(27, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 28, 2 },
         }}),
         // Signal 'newGame'
-        QtMocHelpers::SignalData<void(bool)>(28, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(bool)>(29, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Bool, 2 },
         }}),
         // Signal 'applyConfig'
-        QtMocHelpers::SignalData<void(QVariantMap)>(29, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 2 },
+        QtMocHelpers::SignalData<void(QVariantMap)>(30, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 2 },
         }}),
         // Signal 'showRemoteGames'
-        QtMocHelpers::SignalData<void()>(31, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void()>(32, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'loadingFinished'
-        QtMocHelpers::SignalData<void(int)>(32, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 2 },
-        }}),
-        // Signal 'loadingProgress'
         QtMocHelpers::SignalData<void(int)>(33, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::Int, 2 },
         }}),
+        // Signal 'loadingProgress'
+        QtMocHelpers::SignalData<void(int)>(34, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 2 },
+        }}),
         // Signal 'onSend'
-        QtMocHelpers::SignalData<void(const network::MessageType, const QString, QString)>(34, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 35, 36 }, { QMetaType::QString, 37 }, { QMetaType::QString, 38 },
+        QtMocHelpers::SignalData<void(const network::MessageType, const QString, QString)>(35, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 36, 37 }, { QMetaType::QString, 38 }, { QMetaType::QString, 39 },
         }}),
         // Slot 'startNewGame'
-        QtMocHelpers::SlotData<void(QVariantMap)>(39, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 40 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(40, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 41 },
         }}),
         // Slot 'startNewGameLater'
-        QtMocHelpers::SlotData<void(QVariantMap)>(41, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 40 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(42, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 41 },
         }}),
         // Slot 'nextPlayer'
-        QtMocHelpers::SlotData<void(const bool)>(42, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Bool, 43 },
+        QtMocHelpers::SlotData<void(const bool)>(43, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Bool, 44 },
         }}),
         // Slot 'nextPlayer'
-        QtMocHelpers::SlotData<void()>(42, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(43, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void),
         // Slot 'dropLetter'
-        QtMocHelpers::SlotData<void(const uint, const uint)>(44, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::UInt, 45 }, { QMetaType::UInt, 46 },
+        QtMocHelpers::SlotData<void(const uint, const uint)>(45, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::UInt, 46 }, { QMetaType::UInt, 47 },
         }}),
         // Slot 'dropLetterRack'
-        QtMocHelpers::SlotData<void(const uint, const uint)>(47, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::UInt, 48 }, { QMetaType::UInt, 49 },
+        QtMocHelpers::SlotData<void(const uint, const uint)>(48, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::UInt, 49 }, { QMetaType::UInt, 50 },
         }}),
         // Slot 'removeLetter'
-        QtMocHelpers::SlotData<int(const uint)>(50, 2, QMC::AccessPublic, QMetaType::Int, {{
-            { QMetaType::UInt, 46 },
+        QtMocHelpers::SlotData<int(const uint)>(51, 2, QMC::AccessPublic, QMetaType::Int, {{
+            { QMetaType::UInt, 47 },
         }}),
         // Slot 'removeLetter'
-        QtMocHelpers::SlotData<int(Letter)>(50, 2, QMC::AccessPublic, QMetaType::Int, {{
-            { 0x80000000 | 51, 52 },
+        QtMocHelpers::SlotData<int(Letter)>(51, 2, QMC::AccessPublic, QMetaType::Int, {{
+            { 0x80000000 | 52, 53 },
         }}),
         // Slot 'jokerLetter'
-        QtMocHelpers::SlotData<void(const uint, const QString)>(53, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::UInt, 46 }, { QMetaType::QString, 54 },
+        QtMocHelpers::SlotData<void(const uint, const QString)>(54, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::UInt, 47 }, { QMetaType::QString, 55 },
         }}),
         // Slot 'doCambioSecco'
-        QtMocHelpers::SlotData<void()>(55, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(56, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'doDownloadFinished'
-        QtMocHelpers::SlotData<void(DlType, QString)>(56, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 57, 58 }, { QMetaType::QString, 59 },
+        QtMocHelpers::SlotData<void(DlType, QString)>(57, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 58, 59 }, { QMetaType::QString, 60 },
         }}),
         // Slot 'startPoll'
-        QtMocHelpers::SlotData<void(GamePlay::PollType)>(60, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 61, 62 },
+        QtMocHelpers::SlotData<void(GamePlay::PollType)>(61, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 62, 63 },
         }}),
         // Slot 'endPoll'
-        QtMocHelpers::SlotData<void()>(63, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'endChallenge'
         QtMocHelpers::SlotData<void()>(64, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'endChallenge'
+        QtMocHelpers::SlotData<void()>(65, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'doNetworkError'
-        QtMocHelpers::SlotData<void(QAbstractSocket::SocketError)>(65, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 66, 67 },
+        QtMocHelpers::SlotData<void(QAbstractSocket::SocketError)>(66, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 67, 68 },
         }}),
         // Slot 'doNetworkInfo'
-        QtMocHelpers::SlotData<void(QVariantMap)>(68, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(69, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkLogin'
-        QtMocHelpers::SlotData<void(QVariantMap)>(70, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(71, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doDisconnect'
-        QtMocHelpers::SlotData<void()>(71, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(72, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'doNetworkDisconnect'
-        QtMocHelpers::SlotData<void(QString)>(72, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 69 },
+        QtMocHelpers::SlotData<void(QString)>(73, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 70 },
         }}),
         // Slot 'doNetworkInvite'
-        QtMocHelpers::SlotData<void(QVariantMap)>(73, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(74, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkJoin'
-        QtMocHelpers::SlotData<void(QVariantMap)>(74, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(75, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkAnswer'
-        QtMocHelpers::SlotData<void(QVariantMap)>(75, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(76, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkSyncNewGame'
-        QtMocHelpers::SlotData<void(QVariantMap)>(76, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(77, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkNextPlayer'
-        QtMocHelpers::SlotData<void(QVariantMap)>(77, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(78, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkRemoteGames'
-        QtMocHelpers::SlotData<void(QVariantMap)>(78, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(79, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkGameResult'
-        QtMocHelpers::SlotData<void(int, int)>(79, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 80 }, { QMetaType::Int, 81 },
+        QtMocHelpers::SlotData<void(int, int)>(80, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 81 }, { QMetaType::Int, 82 },
         }}),
         // Slot 'doNetworkChallengeMove'
-        QtMocHelpers::SlotData<void(QString)>(82, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 83 },
+        QtMocHelpers::SlotData<void(QString)>(83, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 84 },
         }}),
         // Slot 'doNetworkChallengeResult'
-        QtMocHelpers::SlotData<void(QVariantMap)>(84, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 69 },
+        QtMocHelpers::SlotData<void(QVariantMap)>(85, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 70 },
         }}),
         // Slot 'doNetworkSyncChallengeWord'
-        QtMocHelpers::SlotData<void()>(85, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(86, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'doDictionaryLoadingFinished'
-        QtMocHelpers::SlotData<void(QString)>(86, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 87 },
+        QtMocHelpers::SlotData<void(QString)>(87, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 88 },
         }}),
         // Slot 'doSelectedMoveChanged'
-        QtMocHelpers::SlotData<void(int)>(88, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 89 },
+        QtMocHelpers::SlotData<void(int)>(89, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 90 },
         }}),
         // Slot 'setComputeProgress'
-        QtMocHelpers::SlotData<void(const int)>(90, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 91 },
+        QtMocHelpers::SlotData<void(const int)>(91, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 92 },
         }}),
         // Slot 'setComputeResults'
-        QtMocHelpers::SlotData<void(const int)>(92, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 93 },
+        QtMocHelpers::SlotData<void(const int)>(93, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 94 },
         }}),
         // Slot 'download'
-        QtMocHelpers::SlotData<void(QString)>(94, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::SlotData<void(QString)>(95, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'checkForUpdates'
-        QtMocHelpers::MethodData<void()>(95, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'runDemo'
         QtMocHelpers::MethodData<void()>(96, 2, QMC::AccessPublic, QMetaType::Void),
+        // Method 'runDemo'
+        QtMocHelpers::MethodData<void()>(97, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'localize'
-        QtMocHelpers::MethodData<void(const QString)>(97, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<void(const QString)>(98, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'deleteLocFile'
-        QtMocHelpers::MethodData<bool(const QString)>(98, 2, QMC::AccessPublic, QMetaType::Bool, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<bool(const QString)>(99, 2, QMC::AccessPublic, QMetaType::Bool, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'connect'
-        QtMocHelpers::MethodData<void(QString, QString, QString, QString, QString)>(99, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 100 }, { QMetaType::QString, 101 }, { QMetaType::QString, 102 }, { QMetaType::QString, 103 },
-            { QMetaType::QString, 104 },
+        QtMocHelpers::MethodData<void(QString, QString, QString, QString, QString)>(100, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 101 }, { QMetaType::QString, 102 }, { QMetaType::QString, 103 }, { QMetaType::QString, 104 },
+            { QMetaType::QString, 105 },
         }}),
         // Method 'disconnect'
-        QtMocHelpers::MethodData<void()>(105, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::MethodData<void()>(106, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'chat'
-        QtMocHelpers::MethodData<void(QString)>(106, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 107 },
+        QtMocHelpers::MethodData<void(QString)>(107, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 108 },
         }}),
         // Method 'canDrop'
-        QtMocHelpers::MethodData<bool(const unsigned int)>(108, 2, QMC::AccessPublic, QMetaType::Bool, {{
-            { QMetaType::UInt, 46 },
+        QtMocHelpers::MethodData<bool(const unsigned int)>(109, 2, QMC::AccessPublic, QMetaType::Bool, {{
+            { QMetaType::UInt, 47 },
         }}),
         // Method 'canDrag'
-        QtMocHelpers::MethodData<bool()>(109, 2, QMC::AccessPublic, QMetaType::Bool),
+        QtMocHelpers::MethodData<bool()>(110, 2, QMC::AccessPublic, QMetaType::Bool),
         // Method 'exchangeLetter'
-        QtMocHelpers::MethodData<void(const unsigned int)>(110, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::UInt, 45 },
+        QtMocHelpers::MethodData<void(const unsigned int)>(111, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::UInt, 46 },
         }}),
         // Method 'getLastError'
-        QtMocHelpers::MethodData<QString()>(111, 2, QMC::AccessPublic, QMetaType::QString),
+        QtMocHelpers::MethodData<QString()>(112, 2, QMC::AccessPublic, QMetaType::QString),
         // Method 'getPlayerName'
-        QtMocHelpers::MethodData<QString(const int)>(112, 2, QMC::AccessPublic, QMetaType::QString, {{
-            { QMetaType::Int, 113 },
+        QtMocHelpers::MethodData<QString(const int)>(113, 2, QMC::AccessPublic, QMetaType::QString, {{
+            { QMetaType::Int, 114 },
         }}),
         // Method 'addMessage'
-        QtMocHelpers::MethodData<void(QString, QString)>(114, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 54 }, { QMetaType::QString, 115 },
+        QtMocHelpers::MethodData<void(QString, QString)>(115, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 55 }, { QMetaType::QString, 116 },
         }}),
         // Method 'addMessage'
-        QtMocHelpers::MethodData<void(QString)>(114, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
-            { QMetaType::QString, 54 },
+        QtMocHelpers::MethodData<void(QString)>(115, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { QMetaType::QString, 55 },
         }}),
         // Method 'saveConfig'
-        QtMocHelpers::MethodData<void(QString, QVariantMap)>(116, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 }, { 0x80000000 | 30, 117 },
+        QtMocHelpers::MethodData<void(QString, QVariantMap)>(117, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 }, { 0x80000000 | 31, 118 },
         }}),
         // Method 'loadConfig'
-        QtMocHelpers::MethodData<QVariantMap(QString)>(118, 2, QMC::AccessPublic, 0x80000000 | 30, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<QVariantMap(QString)>(119, 2, QMC::AccessPublic, 0x80000000 | 31, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'saveGame'
-        QtMocHelpers::MethodData<void(QString, const bool)>(119, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 }, { QMetaType::Bool, 120 },
+        QtMocHelpers::MethodData<void(QString, const bool)>(120, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 }, { QMetaType::Bool, 121 },
         }}),
         // Method 'saveGame'
-        QtMocHelpers::MethodData<void(QString)>(119, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<void(QString)>(120, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'loadGame'
-        QtMocHelpers::MethodData<void(QString, const bool)>(121, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 }, { QMetaType::Bool, 120 },
+        QtMocHelpers::MethodData<void(QString, const bool)>(122, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 }, { QMetaType::Bool, 121 },
         }}),
         // Method 'loadGame'
-        QtMocHelpers::MethodData<void(QString)>(121, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<void(QString)>(122, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'getRemoteGames'
-        QtMocHelpers::MethodData<void()>(122, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::MethodData<void()>(123, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'loadRemoteGame'
-        QtMocHelpers::MethodData<void(const int)>(123, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 124 },
+        QtMocHelpers::MethodData<void(const int)>(124, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 125 },
         }}),
         // Method 'loadDictionary'
-        QtMocHelpers::MethodData<void(const QString, const QString)>(125, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 }, { QMetaType::QString, 126 },
+        QtMocHelpers::MethodData<void(const QString, const QString)>(126, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 }, { QMetaType::QString, 127 },
         }}),
         // Method 'deleteDictionary'
-        QtMocHelpers::MethodData<void(const QString)>(127, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 59 },
+        QtMocHelpers::MethodData<void(const QString)>(128, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 60 },
         }}),
         // Method 'setCategoryChecked'
-        QtMocHelpers::MethodData<void(const QString, const bool, const bool)>(128, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 129 }, { QMetaType::Bool, 130 }, { QMetaType::Bool, 131 },
+        QtMocHelpers::MethodData<void(const QString, const bool, const bool)>(129, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 130 }, { QMetaType::Bool, 131 }, { QMetaType::Bool, 132 },
         }}),
         // Method 'setCategoryChecked'
-        QtMocHelpers::MethodData<void(const QString, const bool)>(128, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
-            { QMetaType::QString, 129 }, { QMetaType::Bool, 130 },
+        QtMocHelpers::MethodData<void(const QString, const bool)>(129, 2, QMC::AccessPublic | QMC::MethodCloned, QMetaType::Void, {{
+            { QMetaType::QString, 130 }, { QMetaType::Bool, 131 },
         }}),
         // Method 'getCategoryChecked'
-        QtMocHelpers::MethodData<bool(const QString) const>(132, 2, QMC::AccessPublic, QMetaType::Bool, {{
-            { QMetaType::QString, 129 },
+        QtMocHelpers::MethodData<bool(const QString) const>(133, 2, QMC::AccessPublic, QMetaType::Bool, {{
+            { QMetaType::QString, 130 },
         }}),
         // Method 'computeMove'
-        QtMocHelpers::MethodData<void()>(133, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::MethodData<void()>(134, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'placeBestMove'
-        QtMocHelpers::MethodData<void(const int)>(134, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 113 },
+        QtMocHelpers::MethodData<void(const int)>(135, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 114 },
         }}),
         // Method 'getVariation'
-        QtMocHelpers::MethodData<QStringList(const QString)>(135, 2, QMC::AccessPublic, QMetaType::QStringList, {{
-            { QMetaType::QString, 136 },
+        QtMocHelpers::MethodData<QStringList(const QString)>(136, 2, QMC::AccessPublic, QMetaType::QStringList, {{
+            { QMetaType::QString, 137 },
         }}),
         // Method 'wordByIndex'
-        QtMocHelpers::MethodData<QVariantMap(const int)>(137, 2, QMC::AccessPublic, 0x80000000 | 30, {{
-            { QMetaType::Int, 138 },
+        QtMocHelpers::MethodData<QVariantMap(const int)>(138, 2, QMC::AccessPublic, 0x80000000 | 31, {{
+            { QMetaType::Int, 139 },
         }}),
         // Method 'indexByWord'
-        QtMocHelpers::MethodData<int(const QString)>(139, 2, QMC::AccessPublic, QMetaType::Int, {{
-            { QMetaType::QString, 140 },
+        QtMocHelpers::MethodData<int(const QString)>(140, 2, QMC::AccessPublic, QMetaType::Int, {{
+            { QMetaType::QString, 141 },
         }}),
         // Method 'getMeaningAt'
-        QtMocHelpers::MethodData<QString(const int)>(141, 2, QMC::AccessPublic, QMetaType::QString, {{
-            { QMetaType::Int, 113 },
+        QtMocHelpers::MethodData<QString(const int)>(142, 2, QMC::AccessPublic, QMetaType::QString, {{
+            { QMetaType::Int, 114 },
         }}),
         // Method 'statInfoType'
-        QtMocHelpers::MethodData<void(const int)>(142, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 143 },
+        QtMocHelpers::MethodData<void(const int)>(143, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 144 },
         }}),
         // Method 'allStat'
-        QtMocHelpers::MethodData<QString()>(144, 2, QMC::AccessPublic, QMetaType::QString),
-        // Method 'version'
         QtMocHelpers::MethodData<QString()>(145, 2, QMC::AccessPublic, QMetaType::QString),
-        // Method 'config'
+        // Method 'version'
         QtMocHelpers::MethodData<QString()>(146, 2, QMC::AccessPublic, QMetaType::QString),
+        // Method 'config'
+        QtMocHelpers::MethodData<QString()>(147, 2, QMC::AccessPublic, QMetaType::QString),
         // Method 'replaceDigraph'
-        QtMocHelpers::MethodData<QString(const QString)>(147, 2, QMC::AccessPublic, QMetaType::QString, {{
-            { QMetaType::QString, 52 },
+        QtMocHelpers::MethodData<QString(const QString)>(148, 2, QMC::AccessPublic, QMetaType::QString, {{
+            { QMetaType::QString, 53 },
         }}),
         // Method 'networkName'
-        QtMocHelpers::MethodData<QString()>(148, 2, QMC::AccessPublic, QMetaType::QString),
+        QtMocHelpers::MethodData<QString()>(149, 2, QMC::AccessPublic, QMetaType::QString),
         // Method 'doInvite'
-        QtMocHelpers::MethodData<void(QString)>(149, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 150 },
+        QtMocHelpers::MethodData<void(QString)>(150, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 151 },
         }}),
         // Method 'setOpenForGames'
-        QtMocHelpers::MethodData<void(bool)>(151, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Bool, 152 },
+        QtMocHelpers::MethodData<void(bool)>(152, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Bool, 153 },
         }}),
         // Method 'doLeave'
-        QtMocHelpers::MethodData<void()>(153, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::MethodData<void()>(154, 2, QMC::AccessPublic, QMetaType::Void),
         // Method 'syncNewGame'
-        QtMocHelpers::MethodData<void(QVariantMap)>(154, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 30, 155 },
+        QtMocHelpers::MethodData<void(QVariantMap)>(155, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 31, 156 },
         }}),
         // Method 'rejectNewGame'
-        QtMocHelpers::MethodData<void()>(156, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'syncNextPlayer'
         QtMocHelpers::MethodData<void()>(157, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'syncChallengeWord'
+        // Method 'syncNextPlayer'
         QtMocHelpers::MethodData<void()>(158, 2, QMC::AccessPublic, QMetaType::Void),
-        // Method 'syncCambioSecco'
+        // Method 'syncChallengeWord'
         QtMocHelpers::MethodData<void()>(159, 2, QMC::AccessPublic, QMetaType::Void),
+        // Method 'syncCambioSecco'
+        QtMocHelpers::MethodData<void()>(160, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
         // property 'boardModel'
-        QtMocHelpers::PropertyData<boardmodel*>(160, 0x80000000 | 161, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<boardmodel*>(161, 0x80000000 | 162, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'cubeModel'
-        QtMocHelpers::PropertyData<cubemodel*>(162, 0x80000000 | 163, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<cubemodel*>(163, 0x80000000 | 164, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'rackModel'
-        QtMocHelpers::PropertyData<rackmodel*>(164, 0x80000000 | 165, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<rackmodel*>(165, 0x80000000 | 166, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'msgModel'
-        QtMocHelpers::PropertyData<msgmodel*>(166, 0x80000000 | 167, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<msgmodel*>(167, 0x80000000 | 168, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'gamecourseModel'
-        QtMocHelpers::PropertyData<gamecoursemodel*>(168, 0x80000000 | 169, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<gamecoursemodel*>(169, 0x80000000 | 170, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'dicListModel'
-        QtMocHelpers::PropertyData<dictionarymodel*>(170, 0x80000000 | 171, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<dictionarymodel*>(171, 0x80000000 | 172, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'locListModel'
-        QtMocHelpers::PropertyData<locList*>(172, 0x80000000 | 173, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<locList*>(173, 0x80000000 | 174, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'playersTreeModel'
-        QtMocHelpers::PropertyData<playersTree*>(174, 0x80000000 | 175, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<playersTree*>(175, 0x80000000 | 176, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'remoteGames'
-        QtMocHelpers::PropertyData<remoteGamesModel*>(176, 0x80000000 | 177, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
+        QtMocHelpers::PropertyData<remoteGamesModel*>(177, 0x80000000 | 178, QMC::DefaultPropertyFlags | QMC::EnumOrFlag | QMC::Constant),
         // property 'isChallenge'
-        QtMocHelpers::PropertyData<bool>(178, QMetaType::Bool, QMC::DefaultPropertyFlags, 4),
+        QtMocHelpers::PropertyData<bool>(179, QMetaType::Bool, QMC::DefaultPropertyFlags, 4),
         // property 'isRunning'
-        QtMocHelpers::PropertyData<bool>(179, QMetaType::Bool, QMC::DefaultPropertyFlags, 1),
+        QtMocHelpers::PropertyData<bool>(180, QMetaType::Bool, QMC::DefaultPropertyFlags, 1),
         // property 'isComputing'
-        QtMocHelpers::PropertyData<bool>(180, QMetaType::Bool, QMC::DefaultPropertyFlags, 2),
+        QtMocHelpers::PropertyData<bool>(181, QMetaType::Bool, QMC::DefaultPropertyFlags, 2),
         // property 'isHistory'
-        QtMocHelpers::PropertyData<bool>(181, QMetaType::Bool, QMC::DefaultPropertyFlags, 3),
+        QtMocHelpers::PropertyData<bool>(182, QMetaType::Bool, QMC::DefaultPropertyFlags, 3),
         // property 'isInitialized'
-        QtMocHelpers::PropertyData<bool>(182, QMetaType::Bool, QMC::DefaultPropertyFlags, 5),
+        QtMocHelpers::PropertyData<bool>(183, QMetaType::Bool, QMC::DefaultPropertyFlags, 5),
         // property 'is3D'
-        QtMocHelpers::PropertyData<bool>(183, QMetaType::Bool, QMC::DefaultPropertyFlags, 6),
+        QtMocHelpers::PropertyData<bool>(184, QMetaType::Bool, QMC::DefaultPropertyFlags, 6),
         // property 'cambioSecco'
-        QtMocHelpers::PropertyData<bool>(184, QMetaType::Bool, QMC::DefaultPropertyFlags, 7),
+        QtMocHelpers::PropertyData<bool>(185, QMetaType::Bool, QMC::DefaultPropertyFlags, 7),
         // property 'boardSize'
-        QtMocHelpers::PropertyData<int>(185, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
+        QtMocHelpers::PropertyData<int>(186, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
         // property 'isAccepted'
-        QtMocHelpers::PropertyData<bool>(186, QMetaType::Bool, QMC::DefaultPropertyFlags, 8),
+        QtMocHelpers::PropertyData<bool>(187, QMetaType::Bool, QMC::DefaultPropertyFlags, 8),
         // property 'currentMove'
-        QtMocHelpers::PropertyData<int>(187, QMetaType::Int, QMC::DefaultPropertyFlags, 12),
+        QtMocHelpers::PropertyData<int>(188, QMetaType::Int, QMC::DefaultPropertyFlags, 12),
         // property 'currentPlayer'
-        QtMocHelpers::PropertyData<int>(188, QMetaType::Int, QMC::DefaultPropertyFlags, 13),
+        QtMocHelpers::PropertyData<int>(189, QMetaType::Int, QMC::DefaultPropertyFlags, 13),
         // property 'numberOfPlayers'
-        QtMocHelpers::PropertyData<int>(189, QMetaType::Int, QMC::DefaultPropertyFlags, 14),
+        QtMocHelpers::PropertyData<int>(190, QMetaType::Int, QMC::DefaultPropertyFlags, 14),
         // property 'activeDimension'
-        QtMocHelpers::PropertyData<int>(190, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 9),
+        QtMocHelpers::PropertyData<int>(191, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 9),
         // property 'activePosition'
-        QtMocHelpers::PropertyData<int>(191, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 10),
+        QtMocHelpers::PropertyData<int>(192, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 10),
         // property 'lastError'
-        QtMocHelpers::PropertyData<QString>(192, QMetaType::QString, QMC::DefaultPropertyFlags, 11),
+        QtMocHelpers::PropertyData<QString>(193, QMetaType::QString, QMC::DefaultPropertyFlags, 11),
         // property 'statInfo'
-        QtMocHelpers::PropertyData<QString>(193, QMetaType::QString, QMC::DefaultPropertyFlags, 19),
+        QtMocHelpers::PropertyData<QString>(194, QMetaType::QString, QMC::DefaultPropertyFlags, 19),
         // property 'statTotal'
-        QtMocHelpers::PropertyData<QVariantList>(194, 0x80000000 | 27, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 20),
+        QtMocHelpers::PropertyData<QVariantList>(195, 0x80000000 | 28, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 20),
+        // property 'm_lPlayerNames'
+        QtMocHelpers::PropertyData<QStringList>(196, QMetaType::QStringList, QMC::DefaultPropertyFlags, 22),
         // property 'computeProgress'
-        QtMocHelpers::PropertyData<int>(195, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 16),
+        QtMocHelpers::PropertyData<int>(197, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 16),
         // property 'computeResults'
-        QtMocHelpers::PropertyData<int>(196, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 15),
+        QtMocHelpers::PropertyData<int>(198, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 15),
         // property 'wordCount'
-        QtMocHelpers::PropertyData<int>(197, QMetaType::Int, QMC::DefaultPropertyFlags, 18),
+        QtMocHelpers::PropertyData<int>(199, QMetaType::Int, QMC::DefaultPropertyFlags, 18),
         // property 'isConnected'
-        QtMocHelpers::PropertyData<bool>(198, QMetaType::Bool, QMC::DefaultPropertyFlags, 21),
+        QtMocHelpers::PropertyData<bool>(200, QMetaType::Bool, QMC::DefaultPropertyFlags, 21),
         // property 'isLocalPlayer'
-        QtMocHelpers::PropertyData<bool>(199, QMetaType::Bool, QMC::DefaultPropertyFlags, 23),
+        QtMocHelpers::PropertyData<bool>(201, QMetaType::Bool, QMC::DefaultPropertyFlags, 24),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -709,121 +715,122 @@ void GamePlay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 19: _t->statInfoChanged(); break;
         case 20: _t->statTotalChanged(); break;
         case 21: _t->connectedChanged(); break;
-        case 22: _t->showPoll((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
-        case 23: _t->isLocalPlayerChanged(); break;
-        case 24: _t->answerChanged((*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[1]))); break;
-        case 25: _t->newGame((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
-        case 26: _t->applyConfig((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 27: _t->showRemoteGames(); break;
-        case 28: _t->loadingFinished((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 29: _t->loadingProgress((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 30: _t->onSend((*reinterpret_cast<std::add_pointer_t<network::MessageType>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3]))); break;
-        case 31: _t->startNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 32: _t->startNewGameLater((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 33: _t->nextPlayer((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
-        case 34: _t->nextPlayer(); break;
-        case 35: _t->dropLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<uint>>(_a[2]))); break;
-        case 36: _t->dropLetterRack((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<uint>>(_a[2]))); break;
-        case 37: { int _r = _t->removeLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
+        case 22: _t->playerNamesChanged(); break;
+        case 23: _t->showPoll((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 24: _t->isLocalPlayerChanged(); break;
+        case 25: _t->answerChanged((*reinterpret_cast<std::add_pointer_t<QVariantList>>(_a[1]))); break;
+        case 26: _t->newGame((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 27: _t->applyConfig((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 28: _t->showRemoteGames(); break;
+        case 29: _t->loadingFinished((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 30: _t->loadingProgress((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 31: _t->onSend((*reinterpret_cast<std::add_pointer_t<network::MessageType>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3]))); break;
+        case 32: _t->startNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 33: _t->startNewGameLater((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 34: _t->nextPlayer((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 35: _t->nextPlayer(); break;
+        case 36: _t->dropLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<uint>>(_a[2]))); break;
+        case 37: _t->dropLetterRack((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<uint>>(_a[2]))); break;
+        case 38: { int _r = _t->removeLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
             if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
-        case 38: { int _r = _t->removeLetter((*reinterpret_cast<std::add_pointer_t<Letter>>(_a[1])));
+        case 39: { int _r = _t->removeLetter((*reinterpret_cast<std::add_pointer_t<Letter>>(_a[1])));
             if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
-        case 39: _t->jokerLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
-        case 40: _t->doCambioSecco(); break;
-        case 41: _t->doDownloadFinished((*reinterpret_cast<std::add_pointer_t<DlType>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
-        case 42: _t->startPoll((*reinterpret_cast<std::add_pointer_t<GamePlay::PollType>>(_a[1]))); break;
-        case 43: _t->endPoll(); break;
-        case 44: _t->endChallenge(); break;
-        case 45: _t->doNetworkError((*reinterpret_cast<std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
-        case 46: _t->doNetworkInfo((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 47: _t->doNetworkLogin((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 48: _t->doDisconnect(); break;
-        case 49: _t->doNetworkDisconnect((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 50: _t->doNetworkInvite((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 51: _t->doNetworkJoin((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 52: _t->doNetworkAnswer((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 53: _t->doNetworkSyncNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 54: _t->doNetworkNextPlayer((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 55: _t->doNetworkRemoteGames((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 56: _t->doNetworkGameResult((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
-        case 57: _t->doNetworkChallengeMove((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 58: _t->doNetworkChallengeResult((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 59: _t->doNetworkSyncChallengeWord(); break;
-        case 60: _t->doDictionaryLoadingFinished((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 61: _t->doSelectedMoveChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 62: _t->setComputeProgress((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 63: _t->setComputeResults((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 64: _t->download((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 65: _t->checkForUpdates(); break;
-        case 66: _t->runDemo(); break;
-        case 67: _t->localize((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 68: { bool _r = _t->deleteLocFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 40: _t->jokerLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 41: _t->doCambioSecco(); break;
+        case 42: _t->doDownloadFinished((*reinterpret_cast<std::add_pointer_t<DlType>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 43: _t->startPoll((*reinterpret_cast<std::add_pointer_t<GamePlay::PollType>>(_a[1]))); break;
+        case 44: _t->endPoll(); break;
+        case 45: _t->endChallenge(); break;
+        case 46: _t->doNetworkError((*reinterpret_cast<std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
+        case 47: _t->doNetworkInfo((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 48: _t->doNetworkLogin((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 49: _t->doDisconnect(); break;
+        case 50: _t->doNetworkDisconnect((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 51: _t->doNetworkInvite((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 52: _t->doNetworkJoin((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 53: _t->doNetworkAnswer((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 54: _t->doNetworkSyncNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 55: _t->doNetworkNextPlayer((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 56: _t->doNetworkRemoteGames((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 57: _t->doNetworkGameResult((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2]))); break;
+        case 58: _t->doNetworkChallengeMove((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 59: _t->doNetworkChallengeResult((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 60: _t->doNetworkSyncChallengeWord(); break;
+        case 61: _t->doDictionaryLoadingFinished((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 62: _t->doSelectedMoveChanged((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 63: _t->setComputeProgress((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 64: _t->setComputeResults((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 65: _t->download((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 66: _t->checkForUpdates(); break;
+        case 67: _t->runDemo(); break;
+        case 68: _t->localize((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 69: { bool _r = _t->deleteLocFile((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
-        case 69: _t->connect((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[5]))); break;
-        case 70: _t->disconnect(); break;
-        case 71: _t->chat((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 72: { bool _r = _t->canDrop((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
+        case 70: _t->connect((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[4])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[5]))); break;
+        case 71: _t->disconnect(); break;
+        case 72: _t->chat((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 73: { bool _r = _t->canDrop((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1])));
             if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
-        case 73: { bool _r = _t->canDrag();
+        case 74: { bool _r = _t->canDrag();
             if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
-        case 74: _t->exchangeLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1]))); break;
-        case 75: { QString _r = _t->getLastError();
+        case 75: _t->exchangeLetter((*reinterpret_cast<std::add_pointer_t<uint>>(_a[1]))); break;
+        case 76: { QString _r = _t->getLastError();
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 76: { QString _r = _t->getPlayerName((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 77: { QString _r = _t->getPlayerName((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 77: _t->addMessage((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
-        case 78: _t->addMessage((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 79: _t->saveConfig((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[2]))); break;
-        case 80: { QVariantMap _r = _t->loadConfig((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 78: _t->addMessage((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 79: _t->addMessage((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 80: _t->saveConfig((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[2]))); break;
+        case 81: { QVariantMap _r = _t->loadConfig((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QVariantMap*>(_a[0]) = std::move(_r); }  break;
-        case 81: _t->saveGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
-        case 82: _t->saveGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 83: _t->loadGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
-        case 84: _t->loadGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 85: _t->getRemoteGames(); break;
-        case 86: _t->loadRemoteGame((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 87: _t->loadDictionary((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
-        case 88: _t->deleteDictionary((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 89: _t->setCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[3]))); break;
-        case 90: _t->setCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
-        case 91: { bool _r = _t->getCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 82: _t->saveGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
+        case 83: _t->saveGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 84: _t->loadGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
+        case 85: _t->loadGame((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 86: _t->getRemoteGames(); break;
+        case 87: _t->loadRemoteGame((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 88: _t->loadDictionary((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2]))); break;
+        case 89: _t->deleteDictionary((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 90: _t->setCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[3]))); break;
+        case 91: _t->setCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
+        case 92: { bool _r = _t->getCategoryChecked((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
-        case 92: _t->computeMove(); break;
-        case 93: _t->placeBestMove((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 94: { QStringList _r = _t->getVariation((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 93: _t->computeMove(); break;
+        case 94: _t->placeBestMove((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 95: { QStringList _r = _t->getVariation((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QStringList*>(_a[0]) = std::move(_r); }  break;
-        case 95: { QVariantMap _r = _t->wordByIndex((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 96: { QVariantMap _r = _t->wordByIndex((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QVariantMap*>(_a[0]) = std::move(_r); }  break;
-        case 96: { int _r = _t->indexByWord((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 97: { int _r = _t->indexByWord((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
-        case 97: { QString _r = _t->getMeaningAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 98: { QString _r = _t->getMeaningAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 98: _t->statInfoType((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 99: { QString _r = _t->allStat();
+        case 99: _t->statInfoType((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 100: { QString _r = _t->allStat();
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 100: { QString _r = _t->version();
+        case 101: { QString _r = _t->version();
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 101: { QString _r = _t->config();
+        case 102: { QString _r = _t->config();
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 102: { QString _r = _t->replaceDigraph((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
+        case 103: { QString _r = _t->replaceDigraph((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1])));
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 103: { QString _r = _t->networkName();
+        case 104: { QString _r = _t->networkName();
             if (_a[0]) *reinterpret_cast<QString*>(_a[0]) = std::move(_r); }  break;
-        case 104: _t->doInvite((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 105: _t->setOpenForGames((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
-        case 106: _t->doLeave(); break;
-        case 107: _t->syncNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
-        case 108: _t->rejectNewGame(); break;
-        case 109: _t->syncNextPlayer(); break;
-        case 110: _t->syncChallengeWord(); break;
-        case 111: _t->syncCambioSecco(); break;
+        case 105: _t->doInvite((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 106: _t->setOpenForGames((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 107: _t->doLeave(); break;
+        case 108: _t->syncNewGame((*reinterpret_cast<std::add_pointer_t<QVariantMap>>(_a[1]))); break;
+        case 109: _t->rejectNewGame(); break;
+        case 110: _t->syncNextPlayer(); break;
+        case 111: _t->syncChallengeWord(); break;
+        case 112: _t->syncCambioSecco(); break;
         default: ;
         }
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 45:
+        case 46:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
@@ -877,23 +884,25 @@ void GamePlay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             return;
         if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::connectedChanged, 21))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(bool )>(_a, &GamePlay::showPoll, 22))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::playerNamesChanged, 22))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::isLocalPlayerChanged, 23))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(bool )>(_a, &GamePlay::showPoll, 23))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(QVariantList )>(_a, &GamePlay::answerChanged, 24))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::isLocalPlayerChanged, 24))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(bool )>(_a, &GamePlay::newGame, 25))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(QVariantList )>(_a, &GamePlay::answerChanged, 25))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(QVariantMap )>(_a, &GamePlay::applyConfig, 26))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(bool )>(_a, &GamePlay::newGame, 26))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::showRemoteGames, 27))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(QVariantMap )>(_a, &GamePlay::applyConfig, 27))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(int )>(_a, &GamePlay::loadingFinished, 28))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)()>(_a, &GamePlay::showRemoteGames, 28))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(int )>(_a, &GamePlay::loadingProgress, 29))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(int )>(_a, &GamePlay::loadingFinished, 29))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(const network::MessageType , const QString , QString )>(_a, &GamePlay::onSend, 30))
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(int )>(_a, &GamePlay::loadingProgress, 30))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (GamePlay::*)(const network::MessageType , const QString , QString )>(_a, &GamePlay::onSend, 31))
             return;
     }
     if (_c == QMetaObject::RegisterPropertyMetaType) {
@@ -942,11 +951,12 @@ void GamePlay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 23: *reinterpret_cast<QString*>(_v) = _t->getLastError(); break;
         case 24: *reinterpret_cast<QString*>(_v) = _t->getStatInfo(); break;
         case 25: *reinterpret_cast<QVariantList*>(_v) = _t->getStatTotal(); break;
-        case 26: *reinterpret_cast<int*>(_v) = _t->getComputeProgress(); break;
-        case 27: *reinterpret_cast<int*>(_v) = _t->getcomputeResults(); break;
-        case 28: *reinterpret_cast<int*>(_v) = _t->getWordCount(); break;
-        case 29: *reinterpret_cast<bool*>(_v) = _t->getIsConnected(); break;
-        case 30: *reinterpret_cast<bool*>(_v) = _t->getIsLocalPlayer(); break;
+        case 26: *reinterpret_cast<QStringList*>(_v) = _t->getPlayerNames(); break;
+        case 27: *reinterpret_cast<int*>(_v) = _t->getComputeProgress(); break;
+        case 28: *reinterpret_cast<int*>(_v) = _t->getcomputeResults(); break;
+        case 29: *reinterpret_cast<int*>(_v) = _t->getWordCount(); break;
+        case 30: *reinterpret_cast<bool*>(_v) = _t->getIsConnected(); break;
+        case 31: *reinterpret_cast<bool*>(_v) = _t->getIsLocalPlayer(); break;
         default: break;
         }
     }
@@ -955,8 +965,8 @@ void GamePlay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         switch (_id) {
         case 21: _t->setActiveDimension(*reinterpret_cast<int*>(_v)); break;
         case 22: _t->setActivePosition(*reinterpret_cast<int*>(_v)); break;
-        case 26: _t->setComputeProgress(*reinterpret_cast<int*>(_v)); break;
-        case 27: _t->setComputeResults(*reinterpret_cast<int*>(_v)); break;
+        case 27: _t->setComputeProgress(*reinterpret_cast<int*>(_v)); break;
+        case 28: _t->setComputeResults(*reinterpret_cast<int*>(_v)); break;
         default: break;
         }
     }
@@ -981,20 +991,20 @@ int GamePlay::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 112)
+        if (_id < 113)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 112;
+        _id -= 113;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 112)
+        if (_id < 113)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 112;
+        _id -= 113;
     }
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 31;
+        _id -= 32;
     }
     return _id;
 }
@@ -1132,56 +1142,62 @@ void GamePlay::connectedChanged()
 }
 
 // SIGNAL 22
-void GamePlay::showPoll(bool _t1)
+void GamePlay::playerNamesChanged()
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 22, nullptr, _t1);
+    QMetaObject::activate(this, &staticMetaObject, 22, nullptr);
 }
 
 // SIGNAL 23
-void GamePlay::isLocalPlayerChanged()
+void GamePlay::showPoll(bool _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 23, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 23, nullptr, _t1);
 }
 
 // SIGNAL 24
-void GamePlay::answerChanged(QVariantList _t1)
+void GamePlay::isLocalPlayerChanged()
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 24, nullptr, _t1);
+    QMetaObject::activate(this, &staticMetaObject, 24, nullptr);
 }
 
 // SIGNAL 25
-void GamePlay::newGame(bool _t1)
+void GamePlay::answerChanged(QVariantList _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 25, nullptr, _t1);
 }
 
 // SIGNAL 26
-void GamePlay::applyConfig(QVariantMap _t1)
+void GamePlay::newGame(bool _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 26, nullptr, _t1);
 }
 
 // SIGNAL 27
-void GamePlay::showRemoteGames()
+void GamePlay::applyConfig(QVariantMap _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 27, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 27, nullptr, _t1);
 }
 
 // SIGNAL 28
-void GamePlay::loadingFinished(int _t1)
+void GamePlay::showRemoteGames()
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 28, nullptr, _t1);
+    QMetaObject::activate(this, &staticMetaObject, 28, nullptr);
 }
 
 // SIGNAL 29
-void GamePlay::loadingProgress(int _t1)
+void GamePlay::loadingFinished(int _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 29, nullptr, _t1);
 }
 
 // SIGNAL 30
+void GamePlay::loadingProgress(int _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 30, nullptr, _t1);
+}
+
+// SIGNAL 31
 void GamePlay::onSend(const network::MessageType _t1, const QString _t2, QString _t3)
 {
-    QMetaObject::activate<void>(this, &staticMetaObject, 30, nullptr, _t1, _t2, _t3);
+    QMetaObject::activate<void>(this, &staticMetaObject, 31, nullptr, _t1, _t2, _t3);
 }
 QT_WARNING_POP
