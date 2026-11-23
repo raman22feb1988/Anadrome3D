@@ -25,7 +25,7 @@ Dialog {
 
     function setPlayers(configData) {
         playerNames.clear()
-        rbIndex = configData["playerCount"] || 1
+        rbIndex = parseInt(configData["playerCount"]) || 1
         playerNames.append({"playerName": configData["player1"] || qsTr("1st Player"),
                                "isChecked": rbIndex === 1,
                                "isComputer": false})
@@ -50,7 +50,7 @@ Dialog {
         if (!GamePlay.isConnected) {
             var configData = {}
             configData = GamePlay.loadConfig("")
-            rbIndex = configData["playerCount"] || 1
+            rbIndex = parseInt(configData["playerCount"]) || 1
             playerNames.clear()
             if (GamePlay.isDemo) {
                 playerNames.append({"playerName": qsTr("1st Player"),
@@ -106,7 +106,7 @@ Dialog {
                     text: (index + 1)
                     checked: isChecked
                     enabled: !GamePlay.isConnected
-                    onCheckedChanged: rbIndex = index + 1
+                    onClicked: rbIndex = index + 1
                     ButtonGroup.group: radioGroup
                     //todo: newgame: indicator of radiobutton not padded under windows
                     topPadding: tiName.topPadding

@@ -208,8 +208,8 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
         std::mt19937 rng(nSeed);
         std::shuffle(m_lPlayerNames.begin(), m_lPlayerNames.end(), rng);
     }
-    m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
     m_nPlayerCount = m_lPlayerNames.count();
+    m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
     emit numberOfPlayersChanged();
     emit playerNamesChanged();
 
@@ -542,13 +542,13 @@ void GamePlay::doGameEnd()
                 nSubtract += m_nJokerPenalty;
         }
         if (m_bSubtract && (nSubtract > 0)) {
-                m_pGameCourseModel->addBonus(nPlayer, -nSubtract);
-                mpz_class aTotal = m_pGameCourseModel->getScore(nPlayer) + nSubtract;
-                m_pMsgModel->addMessage(tr("%1: %2 minus %3 points")
-                                            .arg(m_lPlayerNames[nPlayer],
-                                            QString::fromStdString(aTotal.get_str()),
-                                            QString::number(nSubtract))
-                                        );
+            m_pGameCourseModel->addBonus(nPlayer, -nSubtract);
+            mpz_class aTotal = m_pGameCourseModel->getScore(nPlayer) + nSubtract;
+            m_pMsgModel->addMessage(tr("%1: %2 minus %3 points")
+                                        .arg(m_lPlayerNames[nPlayer],
+                                        QString::fromStdString(aTotal.get_str()),
+                                        QString::number(nSubtract))
+                                    );
         }
     }
 
@@ -1363,6 +1363,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     {
         m_lPlayerNames = settings.value("PlayerNames").toStringList();
         m_nPlayerCount = m_lPlayerNames.count();
+        m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
         aRackSize = settings.value("RackSize").toUInt();
         bIs3D = settings.value("3D").toBool();
         m_bCanJokerExchange = settings.value("CanJokerExchange").toBool();
@@ -1542,6 +1543,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     emit isInitializedChanged();
     m_bIsComputing = false;
     emit isComputingChanged();
+    emit statInfoChanged();
     emit statTotalChanged();
 
     if ((m_eTimeControlType != tcNoLimit) && (m_nTimeLeft == 0))
