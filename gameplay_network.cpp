@@ -331,7 +331,7 @@ void GamePlay::doNetworkNextPlayer(QVariantMap aMsg)
         if (nLetters > 0) {
             for (int i = 0; i < nLetters; i++) {
                 sLetter = aMsg["letter"+QString::number(i)].toString().split(",");
-                if (sLetter.count() == 12) { //Letter::length()
+                if (sLetter.count() >= 12) { // Letter::length()
                     aLetter.fromString(sLetter);
                     // dropLetter()
                     m_pBoard->setLetter(aLetter);

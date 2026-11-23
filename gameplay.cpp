@@ -1437,12 +1437,9 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
             settings.beginReadArray("rack");
             for (int nRackIndex = 0; nRackIndex < m_pRackModel->rackSize(); nRackIndex++) {
                 settings.setArrayIndex(nRackIndex);
-                QStringList list = settings.value("letter").toStringList();
-                if (list.size() >= 12) { // Safety check to prevent out-of-bounds crash
-                    aLetter.fromString(list);
-                    aLetter.RackPos = nRackIndex;
-                    m_pRackModel->setLetter(aLetter, true, nPlayerIndex);
-                }
+                aLetter.fromString(settings.value("letter").toStringList(););
+                aLetter.RackPos = nRackIndex;
+                m_pRackModel->setLetter(aLetter, true, nPlayerIndex);
             }
             settings.endArray();
         }
