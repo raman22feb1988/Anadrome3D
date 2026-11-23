@@ -1437,7 +1437,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
             settings.beginReadArray("rack");
             for (int nRackIndex = 0; nRackIndex < m_pRackModel->rackSize(); nRackIndex++) {
                 settings.setArrayIndex(nRackIndex);
-                aLetter.fromString(settings.value("letter").toStringList(););
+                aLetter.fromString(settings.value("letter").toStringList());
                 aLetter.RackPos = nRackIndex;
                 m_pRackModel->setLetter(aLetter, true, nPlayerIndex);
             }
