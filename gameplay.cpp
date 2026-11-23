@@ -208,8 +208,8 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
         std::mt19937 rng(nSeed);
         std::shuffle(m_lPlayerNames.begin(), m_lPlayerNames.end(), rng);
     }
-    m_nPlayerCount = m_lPlayerNames.count();
     m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
+    m_nPlayerCount = m_lPlayerNames.count();
     emit numberOfPlayersChanged();
     emit playerNamesChanged();
 
@@ -263,7 +263,6 @@ void GamePlay::startNewGame(QVariantMap gameConfig)
     std::shuffle(m_lBag.begin(), m_lBag.end(), rng);
 
     for (uint nPlayerIndex = 0; nPlayerIndex < m_nPlayerCount; nPlayerIndex++) {
-
         for (int nRackIndex = 0; nRackIndex < m_pRackModel->rackSize(); nRackIndex++) {
             Letter aLetter = m_lBag[0];
             aLetter.State = LetterState::lsRack;
@@ -1363,7 +1362,6 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     {
         m_lPlayerNames = settings.value("PlayerNames").toStringList();
         m_nPlayerCount = m_lPlayerNames.count();
-        m_pMsgModel->playerNames(m_lPlayerNames); //to highlight player messages
         aRackSize = settings.value("RackSize").toUInt();
         bIs3D = settings.value("3D").toBool();
         m_bCanJokerExchange = settings.value("CanJokerExchange").toBool();
@@ -1439,8 +1437,12 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
             settings.beginReadArray("rack");
             for (int nRackIndex = 0; nRackIndex < m_pRackModel->rackSize(); nRackIndex++) {
                 settings.setArrayIndex(nRackIndex);
-                aLetter.fromString(settings.value("letter").toStringList());
-                m_pRackModel->setLetter(aLetter, true, nPlayerIndex);
+                QStringList list = settings.value("letter").toStringList();
+                if (list.size() >= 12) { // Safety check to prevent out-of-bounds crash
+                    aLetter.fromString(list);
+                    aLetter.RackPos = nRackIndex;
+                    m_pRackModel->setLetter(aLetter, true, nPlayerIndex);
+                }
             }
             settings.endArray();
         }
@@ -1543,7 +1545,6 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
     emit isInitializedChanged();
     m_bIsComputing = false;
     emit isComputingChanged();
-    emit statInfoChanged();
     emit statTotalChanged();
 
     if ((m_eTimeControlType != tcNoLimit) && (m_nTimeLeft == 0))
