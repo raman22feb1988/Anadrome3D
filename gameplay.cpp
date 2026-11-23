@@ -862,21 +862,21 @@ QString GamePlay::getStatInfoType(const int aType)
             if (m_eTimeControlType == tcNoLimit)
                 totalSeconds = m_nMoveTime;
             else
-                totalSeconds = qMax(0, m_nTimeLeft - m_nMoveTime); // Prevents negative time
+                totalSeconds = m_nTimeLeft - m_nMoveTime; // Allows negative time
         }
 
-        if (m_eTimeControlType == tcPerGame) {
-            return QTime(0, 0, 0).addSecs(totalSeconds).toString();
-        } else {
-            int hours = totalSeconds / 3600;
-            int minutes = (totalSeconds % 3600) / 60;
-            int seconds = totalSeconds % 60;
+        QString sign = (totalSeconds < 0) ? "-" : "";
+        int absSeconds = qAbs(totalSeconds);
 
-            return QString("%1:%2:%3")
-                .arg(hours, 2, 10, QChar('0'))
-                .arg(minutes, 2, 10, QChar('0'))
-                .arg(seconds, 2, 10, QChar('0'));
-        }
+        int hours = absSeconds / 3600;
+        int minutes = (absSeconds % 3600) / 60;
+        int seconds = absSeconds % 60;
+
+        return QString("%1%2:%3:%4")
+            .arg(sign)
+            .arg(hours, 2, 10, QChar('0'))
+            .arg(minutes, 2, 10, QChar('0'))
+            .arg(seconds, 2, 10, QChar('0'));
     }
     default:
         return "";
@@ -888,7 +888,7 @@ QString GamePlay::getAllStat()
     QString sResult = tr("Letter:") + " " + getStatInfoType(0) + "\n";
     sResult += tr("Game score:") + "\n" + getStatInfoType(1) + "\n";
     if (m_eTimeControlType == tcNoLimit)
-        sResult += tr("Time spend:" );
+        sResult += tr("Time spent:" );
     else
         sResult += tr("Time left:" );
     sResult += " " + getStatInfoType(2);

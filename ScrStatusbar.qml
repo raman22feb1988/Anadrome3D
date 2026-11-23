@@ -156,7 +156,7 @@ RowLayout {
             Action {
                 id: acTime
                 checkable: true
-                text: qsTr("Time left/spend")
+                text: qsTr("Time left/spent")
                 onTriggered: GamePlay.statInfoType(2)
             }
         }
