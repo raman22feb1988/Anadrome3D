@@ -400,7 +400,7 @@ void GamePlay::nextPlayer(const bool bIsLoading)
         isPass = false;
     if (isPass) {
         m_nPasses++;
-        if (!bIsLoading && (nExchange == 0))
+        if (!bIsLoading && nExchange == 0 && m_nPasses <= m_nNumberOfPasses)
             m_pMsgModel->addMessage(tr("%1 passes the move.").arg(
                                         m_lPlayerNames[m_nCurrentPlayer]),
                                     m_lPlayerNames[m_nCurrentPlayer]);
@@ -422,14 +422,17 @@ void GamePlay::nextPlayer(const bool bIsLoading)
         m_bIsFirstMove = false;
 
     //update game course
-    m_pGameCourseModel->addMove(replaceAllLetters(aPlacedWord),
-                                replaceAllLetters(aConnectedWords),
-                                m_nCurrentPlayer,
-                                m_pMoves.last()->Value(),
-                                m_nComputeResults > 0 ? m_pComputeMove->result(0)->Value() : 0,
-                                m_pMoves.last()->isScrabble(),
-                                m_nMoveTime,
-                                m_pRackModel->getInitialRack());
+    if (m_nPasses <= m_nNumberOfPasses)
+    {
+        m_pGameCourseModel->addMove(replaceAllLetters(aPlacedWord),
+                                    replaceAllLetters(aConnectedWords),
+                                    m_nCurrentPlayer,
+                                    m_pMoves.last()->Value(),
+                                    m_nComputeResults > 0 ? m_pComputeMove->result(0)->Value() : 0,
+                                    m_pMoves.last()->isScrabble(),
+                                    m_nMoveTime,
+                                    m_pRackModel->getInitialRack());
+    }
 
     //check game end
     if (!bIsLoading && //when loading bIsRunning is saved and restored
@@ -491,9 +494,12 @@ void GamePlay::nextPlayer(const bool bIsLoading)
 
     //allow next player action
     m_bIsAccepted = true;
-    m_pMsgModel->addMessage(tr("It's %1's turn.").arg(
-                                m_lPlayerNames[m_nCurrentPlayer]),
-                            m_lPlayerNames[m_nCurrentPlayer]);
+    if (m_nPasses < m_nNumberOfPasses)
+    {
+        m_pMsgModel->addMessage(tr("It's %1's turn.").arg(
+                                    m_lPlayerNames[m_nCurrentPlayer]),
+                                m_lPlayerNames[m_nCurrentPlayer]);
+    }
     emit isAcceptedChanged();
     emit lastErrorChanged();
 

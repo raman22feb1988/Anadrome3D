@@ -39,8 +39,7 @@ GridLayout {
 
         if (sParts.length === 3) {
             nTime = parseInt(sParts[0]);
-            if (nTime < 24)
-                nResult += nTime * 3600;
+            nResult += nTime * 3600;
             nTime = parseInt(sParts[1]);
             if (nTime < 60)
                 nResult += nTime * 60;
@@ -58,7 +57,7 @@ GridLayout {
         property bool accepted
 
         validator: RegularExpressionValidator {
-            regularExpression: /^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/
+            regularExpression: /^(?:(?:(\d+):)?([0-5]?\d):)?([0-5]?\d)$/
         } //accept from 00:00:00 to 23:59:59
 
         color: enabled ? "black" : "darkgrey"

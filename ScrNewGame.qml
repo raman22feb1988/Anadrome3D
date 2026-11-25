@@ -87,9 +87,12 @@ Dialog {
     }
 
     function getTimeString() {
-        var aTime = new Date(0,0,0,0,0,0)
-        aTime.setSeconds(config.timeControlValue)
-        return aTime.toTimeString()
+        var totalSeconds = Math.floor(config.timeControlValue);
+            var hh = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            var mm = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            var ss = String(totalSeconds % 60).padStart(2, '0');
+
+            return hh + ':' + mm + ':' + ss;
     }
     contentItem: FocusScope {
         id: focus //required to receive return key
