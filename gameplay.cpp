@@ -1502,9 +1502,9 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
 
             if (i < nMoves-1) {
                 nextPlayer(true); //bIsLoading = true; last move when game has ended follows below
-                int nBonusWho = settings.value("bonuswho").toInt();
+                int nBonusWho = settings.value("bonuswho", -1).toInt();
                 if (nBonusWho > -1)
-                    m_pGameCourseModel->addBonus(nBonusWho, settings.value("bonus").toInt());
+                    m_pGameCourseModel->addBonus(nBonusWho, settings.value("bonus", 0).toInt());
             }
             else
                 m_pBoardModel->updateAllSquares(); //refresh for currently placed pieces
