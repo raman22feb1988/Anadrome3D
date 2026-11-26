@@ -567,12 +567,12 @@ void GamePlay::doGameEnd()
                                 );
     }
 
-    for (uint nPlayer = 0; nPlayer < m_nPlayerCount; nPlayer++) {
+    /* for (uint nPlayer = 0; nPlayer < m_nPlayerCount; nPlayer++) {
         if ((m_eTimeControlType == tcPerGame) && //time control per game
             (m_pGameCourseModel->timeTotalPerPlayer(nPlayer) >= int(m_nTimeControlValue)) &&
             (m_bTimeGameLost))
             m_pGameCourseModel->zerototal(nPlayer);
-    }
+    } */
 
     QList<int> nWinner;
     m_pGameCourseModel->getWinner(nWinner);
