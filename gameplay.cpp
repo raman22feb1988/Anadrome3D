@@ -524,7 +524,7 @@ void GamePlay::doGameEnd()
     // if all pieces are placed, ie. not ending by passes, the end game bonus is
     // given to the player who ended the game; which is last()-1 here
     // first call of setGameEndBonus() will also find the winner, after adding the game end bonus
-    if ( (m_nPasses < m_nNumberOfPasses) && (m_nGameEndBonus > 0) ) {
+    if (m_nPasses < m_nNumberOfPasses && m_nGameEndBonus > 0) {
         m_pGameCourseModel->addBonus(m_nCurrentPlayer, m_nGameEndBonus);
         m_pMsgModel->addMessage(tr("%1 has ended the game and receives a bonus of %2 points.")
                                     .arg(m_lPlayerNames[m_nCurrentPlayer],
@@ -546,7 +546,7 @@ void GamePlay::doGameEnd()
             if (aLetter.IsJoker)
                 nSubtract += m_nJokerPenalty;
         }
-        if (m_bSubtract && (nSubtract > 0)) {
+        if (m_bSubtract && nSubtract > 0) {
             m_pGameCourseModel->addBonus(nPlayer, -nSubtract);
             mpz_class aTotal = m_pGameCourseModel->getScore(nPlayer) + nSubtract;
             m_pMsgModel->addMessage(tr("%1: %2 minus %3 points")
@@ -557,7 +557,7 @@ void GamePlay::doGameEnd()
         }
     }
 
-    if (m_bAdd) {
+    if (m_bAdd && m_nPasses < m_nNumberOfPasses) {
         m_pGameCourseModel->addBonus(m_nCurrentPlayer, nAdd);
         mpz_class aTotal = m_pGameCourseModel->getScore(m_nCurrentPlayer) - nAdd;
         m_pMsgModel->addMessage(tr("%1: %2 plus %3 points")
