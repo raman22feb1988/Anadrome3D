@@ -1396,7 +1396,7 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
             m_bCanCambioSecco.append(aList[i].toInt());
         m_bWhatif = settings.value("/Whatif").toBool();
         m_bAdd = settings.value("Add").toBool();
-        m_bSubtract = settings.value("Subtract").toBool();
+        m_bSubtract = settings.value("Subtract", settings.value("Substract")).toBool();
         m_nTimePenaltyValue = settings.value("TimePenaltyValue").toUInt();
         aList.clear();
         aList = settings.value("TimePenaltyCount").toString().split(",");
@@ -1502,6 +1502,8 @@ void GamePlay::loadGame(QString fileName, const bool bSilent)
 
             if (i < nMoves-1) {
                 nextPlayer(true); //bIsLoading = true; last move when game has ended follows below
+
+                // Check for end-of-game bonus on any move (including the ultimate one)
                 int nBonusWho = settings.value("bonuswho", -1).toInt();
                 if (nBonusWho > -1)
                     m_pGameCourseModel->addBonus(nBonusWho, settings.value("bonus", 0).toInt());

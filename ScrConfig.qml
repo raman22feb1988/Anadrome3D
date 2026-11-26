@@ -322,7 +322,7 @@ Window {
         configRules.cbAddLetters.checked = getConfigValue("cbAddLetters",
                                                           "true") === "true"
         configRules.cbSubtractLetters.checked = getConfigValue(
-                    "cbSubtractLetters", "true") === "true"
+                    "cbSubtractLetters", getConfigValue("cbSubstractLetters", "true")) === "true"
         configRules.cbChangeIsPass.checked = getConfigValue("cbChangeIsPass",
                                                             "false") === "true"
         configRules.cbCambioSecco.checked = getConfigValue("cbCambioSecco",
